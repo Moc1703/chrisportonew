@@ -1,0 +1,189 @@
+import fs from 'fs'
+import path from 'path'
+
+const contentDirectory = path.join(process.cwd(), 'content')
+
+export interface ContentData {
+  home: {
+    title: string
+    subtitle: string
+    description: string
+    ctaText: string
+  }
+  about: {
+    title: string
+    description: string
+    mission: string
+    vision: string
+    values: Array<{ title: string; description: string }>
+    stats: Array<{ number: string; label: string }>
+  }
+  services: {
+    title: string
+    description: string
+    services: Array<{
+      title: string
+      description: string
+      icon: string
+    }>
+  }
+  gallery: {
+    title: string
+    description: string
+    images: Array<{
+      src: string
+      alt: string
+      caption: string
+    }>
+  }
+  contact: {
+    title: string
+    description: string
+    whatsapp: string
+    email: string
+    address: string
+    phone: string
+  }
+}
+
+export async function getContentData(): Promise<ContentData> {
+  try {
+    const contentPath = path.join(contentDirectory, 'content.json')
+    const fileContents = fs.readFileSync(contentPath, 'utf8')
+    return JSON.parse(fileContents)
+  } catch (error) {
+    // Return default content if file doesn't exist
+    return getDefaultContent()
+  }
+}
+
+function getDefaultContent(): ContentData {
+  return {
+    home: {
+      title: 'Solusi Profesional untuk Konsultan & Training Alat Berat',
+      subtitle: 'Ahli dalam Konsultasi dan Pelatihan Operator Alat Berat',
+      description: 'Kami menyediakan layanan konsultan dan training alat berat terpercaya dengan tim berpengalaman. Tingkatkan produktivitas dan keselamatan operasional alat berat perusahaan Anda.',
+      ctaText: 'Hubungi Kami Sekarang'
+    },
+    about: {
+      title: 'Tentang Kami',
+      description: 'Kami adalah perusahaan konsultan dan training alat berat yang telah berpengalaman dalam membantu berbagai perusahaan meningkatkan kualitas operasional alat berat mereka.',
+      mission: 'Memberikan solusi konsultasi dan pelatihan alat berat yang berkualitas tinggi untuk meningkatkan produktivitas dan keselamatan kerja di berbagai industri.',
+      vision: 'Menjadi perusahaan konsultan dan training alat berat terdepan di Indonesia dengan standar internasional.',
+      values: [
+        {
+          title: 'Profesionalisme',
+          description: 'Tim kami terdiri dari profesional berpengalaman di bidang alat berat.'
+        },
+        {
+          title: 'Kualitas',
+          description: 'Kami berkomitmen memberikan layanan berkualitas tinggi untuk setiap klien.'
+        },
+        {
+          title: 'Inovasi',
+          description: 'Terus mengembangkan metode pelatihan dan konsultasi yang inovatif.'
+        },
+        {
+          title: 'Integritas',
+          description: 'Menjunjung tinggi kejujuran dan transparansi dalam setiap layanan.'
+        }
+      ],
+      stats: [
+        { number: '500+', label: 'Klien Puas' },
+        { number: '1000+', label: 'Operator Terlatih' },
+        { number: '10+', label: 'Tahun Pengalaman' },
+        { number: '50+', label: 'Tim Ahli' }
+      ]
+    },
+    services: {
+      title: 'Layanan Kami',
+      description: 'Kami menawarkan berbagai layanan konsultan dan training alat berat untuk memenuhi kebutuhan bisnis Anda.',
+      services: [
+        {
+          title: 'Konsultasi Alat Berat',
+          description: 'Layanan konsultasi profesional untuk optimasi penggunaan alat berat, pemilihan peralatan yang tepat, dan analisis kebutuhan operasional.',
+          icon: 'wrench'
+        },
+        {
+          title: 'Training Operator',
+          description: 'Program pelatihan komprehensif untuk operator alat berat dengan kurikulum terstandar dan instruktur berpengalaman.',
+          icon: 'book'
+        },
+        {
+          title: 'Sertifikasi Operator',
+          description: 'Program sertifikasi operator alat berat yang diakui secara nasional dan internasional untuk meningkatkan kompetensi SDM.',
+          icon: 'clipboard'
+        },
+        {
+          title: 'Audit Keselamatan',
+          description: 'Layanan audit dan inspeksi keselamatan alat berat untuk memastikan standar operasional yang aman dan efisien.',
+          icon: 'settings'
+        },
+        {
+          title: 'Manajemen Maintenance',
+          description: 'Konsultasi manajemen perawatan alat berat untuk memaksimalkan usia pakai dan mengurangi downtime peralatan.',
+          icon: 'trending'
+        },
+        {
+          title: 'Konsultasi Teknis',
+          description: 'Konsultasi teknis untuk troubleshooting, optimasi performa, dan solusi masalah teknis pada alat berat.',
+          icon: 'users'
+        }
+      ]
+    },
+    gallery: {
+      title: 'Galeri',
+      description: 'Galeri kegiatan dan proyek konsultan serta training alat berat kami.',
+      images: [
+        {
+          src: '/gallery/training-1.jpg',
+          alt: 'Training Operator',
+          caption: 'Sesi Training Operator Alat Berat'
+        },
+        {
+          src: '/gallery/training-2.jpg',
+          alt: 'Konsultasi Lapangan',
+          caption: 'Konsultasi dan Audit di Lapangan'
+        },
+        {
+          src: '/gallery/training-3.jpg',
+          alt: 'Sertifikasi',
+          caption: 'Program Sertifikasi Operator'
+        },
+        {
+          src: '/gallery/training-4.jpg',
+          alt: 'Workshop',
+          caption: 'Workshop Manajemen Maintenance'
+        },
+        {
+          src: '/gallery/training-5.jpg',
+          alt: 'Inspection',
+          caption: 'Inspeksi dan Audit Keselamatan'
+        },
+        {
+          src: '/gallery/training-6.jpg',
+          alt: 'Technical',
+          caption: 'Konsultasi Teknis Alat Berat'
+        },
+        {
+          src: '/gallery/training-7.jpg',
+          alt: 'Safety',
+          caption: 'Training Keselamatan Kerja'
+        },
+        {
+          src: '/gallery/training-8.jpg',
+          alt: 'Evaluation',
+          caption: 'Evaluasi dan Assessment'
+        }
+      ]
+    },
+    contact: {
+      title: 'Hubungi Kami',
+      description: 'Kami siap membantu Anda. Hubungi kami untuk konsultasi lebih lanjut tentang layanan kami.',
+      whatsapp: '6281234567890',
+      email: 'info@alatberatpro.com',
+      address: 'Jl. Contoh No. 123, Jakarta Selatan, DKI Jakarta 12345',
+      phone: '+62 21-1234-5678'
+    }
+  }
+}
