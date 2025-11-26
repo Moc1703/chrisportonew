@@ -10,7 +10,7 @@
   }
   
   body {
-    @apply bg-white text-gray-900;
+    @apply bg-gray-50 text-gray-900;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     touch-action: manipulation;
@@ -31,7 +31,7 @@
 
 @layer components {
   .section-padding {
-    @apply py-12 px-4 sm:py-16 sm:px-6 lg:px-8;
+    @apply py-16 px-4 sm:py-20 sm:px-6 lg:py-24 lg:px-8;
   }
   
   .container-custom {
@@ -39,15 +39,30 @@
   }
   
   .btn-primary {
-    @apply bg-primary-600 active:bg-primary-700 text-white font-semibold py-3.5 px-6 rounded-lg transition-all duration-200 shadow-lg active:shadow-md active:scale-95 min-h-[44px] flex items-center justify-center;
+    @apply bg-gradient-to-r from-primary-600 to-primary-700 hover:from-primary-700 hover:to-primary-800 active:from-primary-800 active:to-primary-900 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-xl hover:shadow-2xl hover:-translate-y-0.5 active:translate-y-0 min-h-[48px] flex items-center justify-center;
   }
   
   .btn-secondary {
-    @apply bg-white active:bg-gray-50 text-primary-600 font-semibold py-3.5 px-6 rounded-lg border-2 border-primary-600 transition-all duration-200 active:scale-95 min-h-[44px] flex items-center justify-center;
+    @apply bg-white hover:bg-gray-50 active:bg-gray-100 text-primary-600 font-bold py-4 px-8 rounded-xl border-2 border-primary-600 transition-all duration-300 hover:shadow-lg hover:-translate-y-0.5 active:translate-y-0 min-h-[48px] flex items-center justify-center;
   }
   
   /* Touch-friendly interactive elements */
   .touch-target {
     @apply min-h-[44px] min-w-[44px];
+  }
+
+  /* Card hover effects */
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-2xl hover:-translate-y-2;
+  }
+
+  /* Gradient text */
+  .gradient-text {
+    @apply bg-gradient-to-r from-primary-600 to-accent-600 bg-clip-text text-transparent;
+  }
+
+  /* Section backgrounds */
+  .section-construction {
+    @apply bg-construction-pattern;
   }
 }
