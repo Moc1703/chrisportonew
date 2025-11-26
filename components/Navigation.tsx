@@ -45,31 +45,33 @@ export default function Navigation() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled
-          ? 'bg-white shadow-lg'
-          : 'bg-white/95 backdrop-blur-sm'
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100"
     >
       <div className="container-custom">
-        <div className="flex items-center justify-between h-16 sm:h-20">
-          <div className="flex items-center">
-            <h1 className="text-xl sm:text-2xl font-bold text-primary-900 uppercase tracking-wider">
+        <div className="flex items-center justify-between h-20">
+          <div className="flex items-center gap-4">
+            {/* Placeholder for Logo */}
+            <div className="w-10 h-10 bg-accent-500 flex items-center justify-center text-black font-bold text-xl">A</div>
+            <h1 className="text-xl sm:text-2xl font-bold text-black uppercase tracking-widest">
               Alat Berat Pro
             </h1>
           </div>
 
           {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
+          <div className="hidden md:flex items-center space-x-8">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-gray-600 hover:text-accent-600 font-bold transition-colors duration-200 py-2 px-1 touch-target uppercase text-sm tracking-wide"
+                className="text-gray-800 hover:text-accent-600 font-bold transition-colors duration-200 py-2 px-1 touch-target uppercase text-xs tracking-widest"
               >
                 {item.label}
               </button>
             ))}
+            {/* Quote Button - Corporate Standard */}
+            <button className="bg-black text-white text-xs font-bold uppercase px-6 py-3 hover:bg-accent-500 hover:text-black transition-colors tracking-widest">
+              Dapatkan Penawaran
+            </button>
           </div>
 
           {/* Mobile Menu Button */}
