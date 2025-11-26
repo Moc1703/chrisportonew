@@ -36,11 +36,11 @@ export default function Navigation() {
   }
 
   const navItems = [
-    { id: 'home', label: 'Home' },
-    { id: 'about', label: 'About' },
-    { id: 'projects', label: 'Projects' },
-    { id: 'gallery', label: 'Portfolio' },
-    { id: 'contact', label: 'Contact' },
+    { id: 'home', label: 'Beranda' },
+    { id: 'about', label: 'Tentang Kami' },
+    { id: 'services', label: 'Layanan' },
+    { id: 'gallery', label: 'Galeri' },
+    { id: 'contact', label: 'Kontak' },
   ]
 
   return (
@@ -55,7 +55,7 @@ export default function Navigation() {
         <div className="flex items-center justify-between h-16 sm:h-20">
           <div className="flex items-center">
             <h1 className="text-xl sm:text-2xl font-bold text-primary-600">
-              YourName
+              Alat Berat Pro
             </h1>
           </div>
 

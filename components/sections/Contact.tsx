@@ -15,7 +15,7 @@ interface ContactProps {
 
 export default function Contact({ data }: ContactProps) {
   const handleWhatsAppClick = () => {
-    const message = encodeURIComponent('Hi! I would like to discuss a project with you.')
+    const message = encodeURIComponent('Halo, saya tertarik dengan layanan konsultan dan training alat berat.')
     const whatsappUrl = `https://wa.me/${data.whatsapp.replace(/[^0-9]/g, '')}?text=${message}`
     window.open(whatsappUrl, '_blank')
   }
@@ -76,21 +76,21 @@ export default function Contact({ data }: ContactProps) {
                 className="w-full bg-green-500 active:bg-green-600 text-white font-semibold py-3.5 sm:py-4 px-6 rounded-lg transition-all duration-200 shadow-lg active:shadow-md active:scale-95 flex items-center justify-center space-x-3 touch-target"
               >
                 <MessageCircle className="w-5 h-5 sm:w-6 sm:h-6" />
-                <span className="text-base sm:text-lg">Contact via WhatsApp</span>
+                <span className="text-base sm:text-lg">Hubungi via WhatsApp</span>
               </button>
             </div>
           </div>
 
           {/* Contact Form Placeholder */}
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 sm:p-8 border border-white/20">
-            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Send a Message</h3>
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6">Atau Kirim Pesan</h3>
             <p className="text-sm sm:text-base text-primary-100 mb-4 sm:mb-6">
-              For inquiries or collaboration opportunities, feel free to reach out via WhatsApp or email.
+              Untuk pertanyaan lebih lanjut, silakan hubungi kami melalui WhatsApp atau email di atas.
             </p>
             <div className="space-y-4">
               <div className="bg-white/20 rounded-lg p-3 sm:p-4">
                 <p className="text-xs sm:text-sm text-primary-100">
-                  I typically respond within 24 hours. Looking forward to hearing from you!
+                  Formulir kontak dapat ditambahkan sesuai kebutuhan. Saat ini, kami menggunakan WhatsApp sebagai metode komunikasi utama.
                 </p>
               </div>
             </div>

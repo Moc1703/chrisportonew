@@ -5,10 +5,10 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'YourName - Full Stack Developer Portfolio',
-  description: 'Full Stack Developer specializing in modern web technologies. Building beautiful, functional, and scalable applications with Next.js, React, TypeScript, and more.',
-  keywords: 'full stack developer, web developer, react developer, next.js, typescript, portfolio, software engineer, frontend, backend',
-  authors: [{ name: 'YourName' }],
+  title: 'Konsultan & Training Alat Berat | Profesional & Terpercaya',
+  description: 'Layanan konsultan dan training alat berat profesional. Kami menyediakan jasa konsultasi dan pelatihan untuk operator alat berat dengan pengalaman bertahun-tahun.',
+  keywords: 'konsultan alat berat, training alat berat, pelatihan alat berat, jasa konsultan alat berat, operator alat berat',
+  authors: [{ name: 'Company Profile' }],
   viewport: {
     width: 'device-width',
     initialScale: 1,
@@ -16,15 +16,15 @@ export const metadata: Metadata = {
     userScalable: true,
   },
   openGraph: {
-    title: 'YourName - Full Stack Developer Portfolio',
-    description: 'Full Stack Developer creating innovative digital solutions with modern web technologies',
+    title: 'Konsultan & Training Alat Berat | Profesional & Terpercaya',
+    description: 'Layanan konsultan dan training alat berat profesional',
     type: 'website',
-    locale: 'en_US',
+    locale: 'id_ID',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'YourName - Full Stack Developer',
-    description: 'Full Stack Developer Portfolio - Modern Web Development',
+    title: 'Konsultan & Training Alat Berat',
+    description: 'Layanan konsultan dan training alat berat profesional',
   },
   robots: {
     index: true,
@@ -49,7 +49,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
+    <html lang="id">
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
