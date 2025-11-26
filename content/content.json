@@ -1,140 +1,140 @@
 {
   "home": {
-    "title": "Solusi Profesional untuk Konsultan & Training Alat Berat",
-    "subtitle": "Ahli dalam Konsultasi dan Pelatihan Operator Alat Berat",
-    "description": "Kami menyediakan layanan konsultan dan training alat berat terpercaya dengan tim berpengalaman. Tingkatkan produktivitas dan keselamatan operasional alat berat perusahaan Anda.",
-    "ctaText": "Hubungi Kami Sekarang"
+    "title": "Full Stack Developer & Creative Problem Solver",
+    "subtitle": "Building Digital Solutions That Make an Impact",
+    "description": "I'm a passionate developer specializing in modern web technologies. I create beautiful, functional, and scalable applications that solve real-world problems.",
+    "ctaText": "View My Work"
   },
   "about": {
-    "title": "Tentang Kami",
-    "description": "Kami adalah perusahaan konsultan dan training alat berat yang telah berpengalaman dalam membantu berbagai perusahaan meningkatkan kualitas operasional alat berat mereka.",
-    "mission": "Memberikan solusi konsultasi dan pelatihan alat berat yang berkualitas tinggi untuk meningkatkan produktivitas dan keselamatan kerja di berbagai industri.",
-    "vision": "Menjadi perusahaan konsultan dan training alat berat terdepan di Indonesia dengan standar internasional.",
+    "title": "About Me",
+    "description": "I'm a Full Stack Developer with a passion for creating elegant solutions to complex problems. With expertise in modern web technologies, I turn ideas into reality through clean code and thoughtful design.",
+    "mission": "To build innovative digital products that enhance user experiences and drive business growth through cutting-edge technology and best practices.",
+    "vision": "Continuously evolving as a developer, staying ahead of technological trends while creating meaningful impact through code.",
     "values": [
       {
-        "title": "Profesionalisme",
-        "description": "Tim kami terdiri dari profesional berpengalaman di bidang alat berat."
+        "title": "Clean Code",
+        "description": "Writing maintainable, scalable, and well-documented code that stands the test of time."
       },
       {
-        "title": "Kualitas",
-        "description": "Kami berkomitmen memberikan layanan berkualitas tinggi untuk setiap klien."
+        "title": "User-Centric",
+        "description": "Prioritizing user experience and accessibility in every project I build."
       },
       {
-        "title": "Inovasi",
-        "description": "Terus mengembangkan metode pelatihan dan konsultasi yang inovatif."
+        "title": "Innovation",
+        "description": "Embracing new technologies and methodologies to deliver cutting-edge solutions."
       },
       {
-        "title": "Integritas",
-        "description": "Menjunjung tinggi kejujuran dan transparansi dalam setiap layanan."
+        "title": "Collaboration",
+        "description": "Working effectively in teams and communicating clearly with stakeholders."
       }
     ],
     "stats": [
       {
-        "number": "500+",
-        "label": "Klien Puas"
-      },
-      {
-        "number": "1000+",
-        "label": "Operator Terlatih"
-      },
-      {
-        "number": "10+",
-        "label": "Tahun Pengalaman"
-      },
-      {
         "number": "50+",
-        "label": "Tim Ahli"
+        "label": "Projects Completed"
+      },
+      {
+        "number": "30+",
+        "label": "Happy Clients"
+      },
+      {
+        "number": "5+",
+        "label": "Years Experience"
+      },
+      {
+        "number": "15+",
+        "label": "Technologies"
       }
     ]
   },
   "services": {
-    "title": "Layanan Kami",
-    "description": "Kami menawarkan berbagai layanan konsultan dan training alat berat untuk memenuhi kebutuhan bisnis Anda.",
+    "title": "Featured Projects",
+    "description": "Here are some of my recent projects showcasing my skills in web development, design, and problem-solving.",
     "services": [
       {
-        "title": "Konsultasi Alat Berat",
-        "description": "Layanan konsultasi profesional untuk optimasi penggunaan alat berat, pemilihan peralatan yang tepat, dan analisis kebutuhan operasional.",
+        "title": "E-Commerce Platform",
+        "description": "Full-stack e-commerce solution with payment integration, inventory management, and admin dashboard. Built with Next.js, TypeScript, and Stripe API.",
         "icon": "wrench"
       },
       {
-        "title": "Training Operator",
-        "description": "Program pelatihan komprehensif untuk operator alat berat dengan kurikulum terstandar dan instruktur berpengalaman.",
-        "icon": "book"
-      },
-      {
-        "title": "Sertifikasi Operator",
-        "description": "Program sertifikasi operator alat berat yang diakui secara nasional dan internasional untuk meningkatkan kompetensi SDM.",
+        "title": "Task Management App",
+        "description": "Real-time collaborative task management application with drag-and-drop functionality, team workspaces, and notification system.",
         "icon": "clipboard"
       },
       {
-        "title": "Audit Keselamatan",
-        "description": "Layanan audit dan inspeksi keselamatan alat berat untuk memastikan standar operasional yang aman dan efisien.",
-        "icon": "settings"
+        "title": "Portfolio Website",
+        "description": "Modern portfolio website with CMS integration, dynamic content management, and optimized SEO. Built with Next.js and Tailwind CSS.",
+        "icon": "book"
       },
       {
-        "title": "Manajemen Maintenance",
-        "description": "Konsultasi manajemen perawatan alat berat untuk memaksimalkan usia pakai dan mengurangi downtime peralatan.",
+        "title": "Social Media Dashboard",
+        "description": "Analytics dashboard for social media management with real-time data visualization, scheduling features, and multi-platform integration.",
         "icon": "trending"
       },
       {
-        "title": "Konsultasi Teknis",
-        "description": "Konsultasi teknis untuk troubleshooting, optimasi performa, dan solusi masalah teknis pada alat berat.",
+        "title": "Restaurant Booking System",
+        "description": "Online reservation system with table management, automated confirmations, and customer reviews. Integrated with WhatsApp API.",
+        "icon": "settings"
+      },
+      {
+        "title": "Learning Management System",
+        "description": "Educational platform with video courses, quizzes, progress tracking, and certificate generation. Built for online learning institutions.",
         "icon": "users"
       }
     ]
   },
   "gallery": {
-    "title": "Galeri",
-    "description": "Galeri kegiatan dan proyek konsultan serta training alat berat kami.",
+    "title": "Portfolio Gallery",
+    "description": "A visual showcase of my work across various projects and technologies.",
     "images": [
       {
-        "src": "/gallery/training-1.jpg",
-        "alt": "Training Operator",
-        "caption": "Sesi Training Operator Alat Berat"
+        "src": "/gallery/project-1.jpg",
+        "alt": "E-Commerce Platform",
+        "caption": "Modern E-Commerce Platform"
       },
       {
-        "src": "/gallery/training-2.jpg",
-        "alt": "Konsultasi Lapangan",
-        "caption": "Konsultasi dan Audit di Lapangan"
+        "src": "/gallery/project-2.jpg",
+        "alt": "Task Management App",
+        "caption": "Collaborative Task Management"
       },
       {
-        "src": "/gallery/training-3.jpg",
-        "alt": "Sertifikasi",
-        "caption": "Program Sertifikasi Operator"
+        "src": "/gallery/project-3.jpg",
+        "alt": "Portfolio Website",
+        "caption": "Portfolio Website Design"
       },
       {
-        "src": "/gallery/training-4.jpg",
-        "alt": "Workshop",
-        "caption": "Workshop Manajemen Maintenance"
+        "src": "/gallery/project-4.jpg",
+        "alt": "Dashboard Analytics",
+        "caption": "Social Media Analytics Dashboard"
       },
       {
-        "src": "/gallery/training-5.jpg",
-        "alt": "Inspection",
-        "caption": "Inspeksi dan Audit Keselamatan"
+        "src": "/gallery/project-5.jpg",
+        "alt": "Booking System",
+        "caption": "Restaurant Booking System"
       },
       {
-        "src": "/gallery/training-6.jpg",
-        "alt": "Technical",
-        "caption": "Konsultasi Teknis Alat Berat"
+        "src": "/gallery/project-6.jpg",
+        "alt": "LMS Platform",
+        "caption": "Learning Management System"
       },
       {
-        "src": "/gallery/training-7.jpg",
-        "alt": "Safety",
-        "caption": "Training Keselamatan Kerja"
+        "src": "/gallery/project-7.jpg",
+        "alt": "Mobile App",
+        "caption": "Mobile App Interface"
       },
       {
-        "src": "/gallery/training-8.jpg",
-        "alt": "Evaluation",
-        "caption": "Evaluasi dan Assessment"
+        "src": "/gallery/project-8.jpg",
+        "alt": "Web Design",
+        "caption": "UI/UX Design Projects"
       }
     ]
   },
   "contact": {
-    "title": "Hubungi Kami",
-    "description": "Kami siap membantu Anda. Hubungi kami untuk konsultasi lebih lanjut tentang layanan kami.",
+    "title": "Let's Work Together",
+    "description": "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.",
     "whatsapp": "6281234567890",
-    "email": "info@alatberatpro.com",
-    "address": "Jl. Contoh No. 123, Jakarta Selatan, DKI Jakarta 12345",
-    "phone": "+62 21-1234-5678"
+    "email": "hello@yourportfolio.com",
+    "address": "Jakarta, Indonesia",
+    "phone": "+62 812-3456-7890"
   }
 }

@@ -12,8 +12,8 @@ interface HomeProps {
 }
 
 export default function Home({ data }: HomeProps) {
-  const scrollToContact = () => {
-    const element = document.getElementById('contact')
+  const scrollToProjects = () => {
+    const element = document.getElementById('projects')
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' })
     }
@@ -34,7 +34,7 @@ export default function Home({ data }: HomeProps) {
           </p>
           <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4">
             <button
-              onClick={scrollToContact}
+              onClick={scrollToProjects}
               className="btn-primary text-base sm:text-lg px-6 sm:px-8 py-3.5 sm:py-4 w-full sm:w-auto"
             >
               {data.ctaText}
@@ -43,7 +43,7 @@ export default function Home({ data }: HomeProps) {
               href="#about"
               className="btn-secondary text-base sm:text-lg px-6 sm:px-8 py-3.5 sm:py-4 w-full sm:w-auto text-center"
             >
-              Pelajari Lebih Lanjut
+              Learn More
             </a>
           </div>
         </div>

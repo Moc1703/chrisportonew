@@ -1,6 +1,6 @@
 import Home from '@/components/sections/Home'
 import About from '@/components/sections/About'
-import Services from '@/components/sections/Services'
+import Projects from '@/components/sections/Projects'
 import Gallery from '@/components/sections/Gallery'
 import Contact from '@/components/sections/Contact'
 import Navigation from '@/components/Navigation'
@@ -17,7 +17,7 @@ export default async function HomePage() {
       <Navigation />
       <Home data={content.home} />
       <About data={content.about} />
-      <Services data={content.services} />
+      <Projects data={content.services} />
       <Gallery data={content.gallery} />
       <Contact data={content.contact} />
       <Footer />
