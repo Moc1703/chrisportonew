@@ -42,12 +42,12 @@ export default function Services({ data }: ServicesProps) {
             return (
               <div
                 key={index}
-                className="bg-white p-8 hover:shadow-lg transition-shadow"
+                className="bg-white p-8 hover:shadow-xl transition-all border border-gray-100 rounded-lg group"
               >
-                <div className="w-16 h-16 bg-primary-600 rounded flex items-center justify-center mb-6">
-                  <Icon className="w-8 h-8 text-white" />
+                <div className="w-16 h-16 bg-primary-900 rounded flex items-center justify-center mb-6 group-hover:bg-accent-500 transition-colors">
+                  <Icon className="w-8 h-8 text-accent-400 group-hover:text-primary-900 transition-colors" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary-700 transition-colors">
                   {service.title}
                 </h3>
                 <p className="text-gray-600 leading-relaxed mb-4">

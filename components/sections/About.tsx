@@ -31,7 +31,7 @@ export default function About({ data }: AboutProps) {
         <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
           {data.stats.map((stat, index) => (
             <div key={index} className="text-center">
-              <div className="text-5xl sm:text-6xl font-bold text-primary-600 mb-2">{stat.number}</div>
+              <div className="text-5xl sm:text-6xl font-bold text-accent-600 mb-2">{stat.number}</div>
               <div className="text-gray-600 font-medium">{stat.label}</div>
             </div>
           ))}
@@ -42,8 +42,8 @@ export default function About({ data }: AboutProps) {
           <div className="grid md:grid-cols-2 gap-12">
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary-600 rounded flex items-center justify-center">
-                  <Target className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-primary-900 rounded flex items-center justify-center">
+                  <Target className="w-6 h-6 text-accent-400" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Visi Kami</h3>
               </div>
@@ -51,8 +51,8 @@ export default function About({ data }: AboutProps) {
             </div>
             <div>
               <div className="flex items-center gap-3 mb-4">
-                <div className="w-12 h-12 bg-primary-600 rounded flex items-center justify-center">
-                  <Award className="w-6 h-6 text-white" />
+                <div className="w-12 h-12 bg-primary-900 rounded flex items-center justify-center">
+                  <Award className="w-6 h-6 text-accent-400" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">Misi Kami</h3>
               </div>
@@ -69,8 +69,8 @@ export default function About({ data }: AboutProps) {
               const Icon = icons[index % icons.length]
               return (
                 <div key={index} className="text-center">
-                  <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                    <Icon className="w-8 h-8 text-primary-600" />
+                  <div className="w-16 h-16 bg-accent-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-accent-600" />
                   </div>
                   <h4 className="text-lg font-bold text-gray-900 mb-3">
                     {value.title}

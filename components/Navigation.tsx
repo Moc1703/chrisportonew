@@ -54,7 +54,7 @@ export default function Navigation() {
       <div className="container-custom">
         <div className="flex items-center justify-between h-16 sm:h-20">
           <div className="flex items-center">
-            <h1 className="text-xl sm:text-2xl font-bold text-primary-600">
+            <h1 className="text-xl sm:text-2xl font-bold text-primary-900 uppercase tracking-wider">
               Alat Berat Pro
             </h1>
           </div>
@@ -65,7 +65,7 @@ export default function Navigation() {
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="text-gray-700 hover:text-primary-600 font-medium transition-colors duration-200 py-2 px-1 touch-target"
+                className="text-gray-600 hover:text-accent-600 font-bold transition-colors duration-200 py-2 px-1 touch-target uppercase text-sm tracking-wide"
               >
                 {item.label}
               </button>
