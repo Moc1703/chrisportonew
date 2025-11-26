@@ -25,34 +25,48 @@ export default function Services({ data }: ServicesProps) {
   return (
     <section id="services" className="py-20 sm:py-24 bg-gray-50">
       <div className="container-custom">
-        {/* Section header */}
+        {/* Section header - Left Aligned */}
         <div className="max-w-3xl mb-16">
-          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
+          <h2 className="text-3xl sm:text-4xl font-black text-black mb-6 uppercase tracking-tight ut-title inline-block">
             {data.title}
           </h2>
-          <p className="text-xl text-gray-600 leading-relaxed">
+          <p className="text-lg text-gray-600 leading-relaxed">
             {data.description}
           </p>
         </div>
 
-        {/* Services grid */}
+        {/* Services grid - Product Card Style */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {data.services.map((service, index) => {
             const Icon = iconMap[service.icon] || Wrench
             return (
               <div
                 key={index}
-                className="bg-white p-8 hover:shadow-xl transition-all border border-gray-100 rounded-lg group"
+                className="bg-white group border-b-4 border-transparent hover:border-yellow-400 transition-all shadow-sm hover:shadow-lg"
               >
-                <div className="w-16 h-16 bg-primary-900 rounded flex items-center justify-center mb-6 group-hover:bg-accent-500 transition-colors">
-                  <Icon className="w-8 h-8 text-accent-400 group-hover:text-primary-900 transition-colors" />
+                {/* Image Placeholder Block */}
+                <div className="bg-gray-200 aspect-video w-full relative overflow-hidden">
+                   <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-bold uppercase tracking-widest">
+                     Service Image
+                   </div>
+                   {/* Overlay on hover */}
+                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all"></div>
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-primary-700 transition-colors">
-                  {service.title}
-                </h3>
-                <p className="text-gray-600 leading-relaxed mb-4">
-                  {service.description}
-                </p>
+                
+                <div className="p-8">
+                  <div className="flex items-center gap-3 mb-4">
+                    <Icon className="w-5 h-5 text-yellow-500" />
+                    <h3 className="text-lg font-black text-black uppercase tracking-tight group-hover:text-yellow-600 transition-colors">
+                      {service.title}
+                    </h3>
+                  </div>
+                  <p className="text-sm text-gray-600 leading-relaxed mb-6">
+                    {service.description}
+                  </p>
+                  <div className="flex items-center text-xs font-bold text-black uppercase tracking-widest group-hover:translate-x-2 transition-transform cursor-pointer">
+                    Selengkapnya <span className="text-yellow-500 ml-2">→</span>
+                  </div>
+                </div>
               </div>
             )
           })}

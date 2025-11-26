@@ -65,4 +65,18 @@
   .section-construction {
     @apply bg-white;
   }
+
+  /* UT Style Utilities */
+  .ut-title {
+    @apply relative pb-4 mb-6;
+  }
+  
+  .ut-title::after {
+    content: '';
+    @apply absolute bottom-0 left-0 w-12 h-1 bg-accent-500;
+  }
+
+  .ut-card-image {
+    @apply relative overflow-hidden bg-gray-200 aspect-[4/3];
+  }
 }

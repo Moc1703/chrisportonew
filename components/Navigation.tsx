@@ -44,69 +44,76 @@ export default function Navigation() {
   ]
 
   return (
-    <nav
-      className="fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-100"
-    >
-      <div className="container-custom">
-        <div className="flex items-center justify-between h-20">
-          <div className="flex items-center gap-4">
-            {/* Placeholder for Logo */}
-            <div className="w-10 h-10 bg-accent-500 flex items-center justify-center text-black font-bold text-xl">A</div>
-            <h1 className="text-xl sm:text-2xl font-bold text-black uppercase tracking-widest">
-              Alat Berat Pro
-            </h1>
-          </div>
+    <>
+      {/* Top Bar - Corporate Style */}
+      <div className="hidden md:block bg-gray-100 text-xs py-2 border-b border-gray-200">
+        <div className="container-custom flex justify-end gap-6 text-gray-600">
+          <span>Karir</span>
+          <span>Hubungan Investor</span>
+          <span>Berita</span>
+          <span className="font-bold text-black">Hubungi Kami: +62 21 1234 5678</span>
+        </div>
+      </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="text-gray-800 hover:text-accent-600 font-bold transition-colors duration-200 py-2 px-1 touch-target uppercase text-xs tracking-widest"
-              >
-                {item.label}
+      <nav className="sticky top-0 left-0 right-0 z-50 bg-white shadow-sm">
+        <div className="container-custom">
+          <div className="flex items-center justify-between h-20">
+            <div className="flex items-center gap-4">
+              {/* Logo Block */}
+              <div className="w-12 h-12 bg-yellow-400 flex items-center justify-center text-black font-black text-2xl">A</div>
+              <div className="flex flex-col">
+                <h1 className="text-xl font-black text-black uppercase leading-none tracking-tighter">
+                  ALAT BERAT
+                </h1>
+                <span className="text-xs font-bold text-gray-500 uppercase tracking-widest">Professional</span>
+              </div>
+            </div>
+
+            {/* Desktop Menu - Right Aligned & Clean */}
+            <div className="hidden md:flex items-center h-full">
+              {navItems.map((item) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="h-full flex items-center px-5 text-gray-800 hover:text-black hover:bg-gray-50 font-bold text-xs uppercase tracking-widest transition-colors border-b-4 border-transparent hover:border-yellow-400"
+                >
+                  {item.label}
+                </button>
+              ))}
+              <button className="ml-6 bg-black text-white text-xs font-bold uppercase px-6 py-3 hover:bg-yellow-400 hover:text-black transition-colors tracking-widest">
+                Penawaran
               </button>
-            ))}
-            {/* Quote Button - Corporate Standard */}
-            <button className="bg-black text-white text-xs font-bold uppercase px-6 py-3 hover:bg-accent-500 hover:text-black transition-colors tracking-widest">
-              Dapatkan Penawaran
+            </div>
+
+            {/* Mobile Menu Button */}
+            <button
+              className="md:hidden text-black p-2"
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            >
+              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
           </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="md:hidden text-gray-700 p-2 touch-target flex items-center justify-center"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {isMobileMenuOpen ? (
-              <X className="w-6 h-6" />
-            ) : (
-              <Menu className="w-6 h-6" />
-            )}
-          </button>
         </div>
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-in-out ${
-            isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0'
-          }`}
+          className={`md:hidden overflow-hidden bg-white border-t border-gray-100 ${
+            isMobileMenuOpen ? 'max-h-screen' : 'max-h-0'
+          } transition-all duration-300`}
         >
-          <div className="pb-4 pt-2 space-y-1">
+          <div className="container-custom py-4 space-y-2">
             {navItems.map((item) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left py-3 px-4 text-gray-700 active:text-primary-600 active:bg-primary-50 font-medium transition-colors rounded-lg touch-target"
+                className="block w-full text-left py-3 px-4 text-gray-800 hover:bg-yellow-50 font-bold uppercase text-sm border-l-4 border-transparent hover:border-yellow-400"
               >
                 {item.label}
               </button>
             ))}
           </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </>
   )
 }
