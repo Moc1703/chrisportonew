@@ -15,68 +15,67 @@ export default function About({ data }: AboutProps) {
   const icons = [Award, Users, Clock, Target]
 
   return (
-    <section id="about" className="py-16 sm:py-20 bg-gray-50">
+    <section id="about" className="py-20 sm:py-24 bg-white">
       <div className="container-custom">
-        <div className="mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        {/* Section header */}
+        <div className="max-w-3xl mb-16">
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
             {data.title}
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl leading-relaxed">
+          <p className="text-xl text-gray-600 leading-relaxed">
             {data.description}
           </p>
         </div>
 
-        {/* Vision & Mission - side by side */}
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          <div className="bg-white p-8 rounded-lg border-l-4 border-orange-500">
-            <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
-              <Target className="w-5 h-5 text-orange-600" />
-              Visi Kami
-            </h3>
-            <p className="text-base text-gray-600 leading-relaxed">{data.vision}</p>
-          </div>
-          <div className="bg-white p-8 rounded-lg border-l-4 border-orange-500">
-            <h3 className="text-xl font-bold text-gray-900 mb-3 flex items-center gap-2">
-              <Award className="w-5 h-5 text-orange-600" />
-              Misi Kami
-            </h3>
-            <p className="text-base text-gray-600 leading-relaxed">{data.mission}</p>
-          </div>
+        {/* Stats - prominent display */}
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
+          {data.stats.map((stat, index) => (
+            <div key={index} className="text-center">
+              <div className="text-5xl sm:text-6xl font-bold text-primary-600 mb-2">{stat.number}</div>
+              <div className="text-gray-600 font-medium">{stat.label}</div>
+            </div>
+          ))}
         </div>
 
-        {/* Stats - varied sizes */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
-          {data.stats.map((stat, index) => {
-            const Icon = icons[index % icons.length]
-            return (
-              <div key={index} className="bg-white p-6 rounded-lg">
-                <Icon className="w-8 h-8 text-orange-600 mb-3" />
-                <div className="text-3xl font-bold text-gray-900 mb-1">{stat.number}</div>
-                <div className="text-sm text-gray-600">{stat.label}</div>
+        {/* Vision & Mission */}
+        <div className="bg-gray-50 p-12 sm:p-16 mb-20">
+          <div className="grid md:grid-cols-2 gap-12">
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-primary-600 rounded flex items-center justify-center">
+                  <Target className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Visi Kami</h3>
               </div>
-            )
-          })}
+              <p className="text-lg text-gray-600 leading-relaxed">{data.vision}</p>
+            </div>
+            <div>
+              <div className="flex items-center gap-3 mb-4">
+                <div className="w-12 h-12 bg-primary-600 rounded flex items-center justify-center">
+                  <Award className="w-6 h-6 text-white" />
+                </div>
+                <h3 className="text-2xl font-bold text-gray-900">Misi Kami</h3>
+              </div>
+              <p className="text-lg text-gray-600 leading-relaxed">{data.mission}</p>
+            </div>
+          </div>
         </div>
 
-        {/* Values - simple cards */}
+        {/* Values */}
         <div>
-          <h3 className="text-2xl font-bold text-gray-900 mb-8">Nilai-Nilai Kami</h3>
-          <div className="grid sm:grid-cols-2 gap-6">
+          <h3 className="text-3xl font-bold text-gray-900 mb-10">Nilai-Nilai Kami</h3>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {data.values.map((value, index) => {
               const Icon = icons[index % icons.length]
               return (
-                <div key={index} className="bg-white p-6 rounded-lg border border-gray-200 hover:border-orange-300 transition-colors">
-                  <div className="flex items-start gap-4">
-                    <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                      <Icon className="w-6 h-6 text-orange-600" />
-                    </div>
-                    <div>
-                      <h4 className="text-lg font-bold text-gray-900 mb-2">
-                        {value.title}
-                      </h4>
-                      <p className="text-gray-600 leading-relaxed">{value.description}</p>
-                    </div>
+                <div key={index} className="text-center">
+                  <div className="w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <Icon className="w-8 h-8 text-primary-600" />
                   </div>
+                  <h4 className="text-lg font-bold text-gray-900 mb-3">
+                    {value.title}
+                  </h4>
+                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
                 </div>
               )
             })}

@@ -40,7 +40,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: '/',
   },
-  themeColor: '#f97316',
+  themeColor: '#2563eb',
 }
 
 export default function RootLayout({

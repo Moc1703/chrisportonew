@@ -23,32 +23,34 @@ export default function Services({ data }: ServicesProps) {
   }
 
   return (
-    <section id="services" className="py-16 sm:py-20 bg-white">
+    <section id="services" className="py-20 sm:py-24 bg-gray-50">
       <div className="container-custom">
-        <div className="mb-12">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4">
+        {/* Section header */}
+        <div className="max-w-3xl mb-16">
+          <h2 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6">
             {data.title}
           </h2>
-          <p className="text-lg text-gray-600 max-w-2xl leading-relaxed">
+          <p className="text-xl text-gray-600 leading-relaxed">
             {data.description}
           </p>
         </div>
 
+        {/* Services grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {data.services.map((service, index) => {
             const Icon = iconMap[service.icon] || Wrench
             return (
               <div
                 key={index}
-                className="bg-gray-50 p-8 rounded-lg hover:bg-orange-50 transition-colors group"
+                className="bg-white p-8 hover:shadow-lg transition-shadow"
               >
-                <div className="w-14 h-14 bg-orange-600 rounded-lg flex items-center justify-center mb-5">
-                  <Icon className="w-7 h-7 text-white" />
+                <div className="w-16 h-16 bg-primary-600 rounded flex items-center justify-center mb-6">
+                  <Icon className="w-8 h-8 text-white" />
                 </div>
-                <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <h3 className="text-xl font-bold text-gray-900 mb-4">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 leading-relaxed">
+                <p className="text-gray-600 leading-relaxed mb-4">
                   {service.description}
                 </p>
               </div>
