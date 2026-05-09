@@ -1,0 +1,102 @@
+{
+  "nav": {
+    "home": "首页",
+    "about": "关于",
+    "experience": "经历",
+    "projects": "项目",
+    "skills": "技能",
+    "contact": "联系",
+    "cta": "联系我"
+  },
+  "hero": {
+    "greeting": "你好，我是",
+    "subtitle_1": "全栈开发工程师",
+    "subtitle_2": "AI与自动化工程师",
+    "subtitle_3": "创意专家",
+    "description": "拥有7年以上Harcourts Indonesia工作经验的全栈开发工程师与创意专家。擅长AI增强开发，以5倍速度构建SaaS平台。将稳健的Node.js后端架构与快速创意执行完美结合。",
+    "cta_primary": "查看作品集",
+    "cta_secondary": "下载简历",
+    "stat_years": "年经验",
+    "stat_trained": "培训学员",
+    "stat_faster": "效率提升"
+  },
+  "about": {
+    "badge": "关于我",
+    "title": "以热情与精准构建数字解决方案",
+    "description": "我是一名将深厚技术能力与视觉创意相结合的全栈开发工程师与创意专家。在Harcourts Indonesia工作7年以上，成功将旧系统现代化升级为Laravel平台，培训100+销售代理掌握数字销售策略，并管理大规模创意生产。",
+    "description_2": "目前，我同时担任独立SaaS架构师，设计WhatsApp自动化平台和网红数据库系统。我的独特优势在于数字赋能——在技术与商业需求之间架起桥梁。",
+    "languages_title": "语言能力",
+    "lang_id": "印度尼西亚语 — 母语",
+    "lang_en": "英语 — 专业水平"
+  },
+  "experience": {
+    "badge": "工作经历",
+    "title": "我的职业历程",
+    "description": "从前端开发到SaaS架构，这是我的专业成长之路。",
+    "present": "至今",
+    "akasha_title": "IT技术管理员",
+    "akasha_company": "Akasha Yoga Academy",
+    "akasha_desc": "负责自动化、AI实施和基于Wix平台的网站开发。",
+    "indie_title": "独立SaaS架构师与开发者",
+    "indie_company": "远程 / 自由职业",
+    "indie_desc": "设计并构建以自动化和效率为核心的独立SaaS平台。",
+    "indie_item_1": "AutoSapa：WhatsApp自动化平台（约7,000+行代码），具有多会话逻辑和专有风险评分系统以防止垃圾信息。",
+    "indie_item_2": "KOLBL：轻量级网红数据库，采用SQLite架构，实现亚秒级搜索性能。",
+    "indie_item_3": "Roblox游戏开发：使用Lua构建复杂交互式游戏机制，展示高级算法逻辑。",
+    "harcourts_title": "前端开发、平面设计师与数字培训师",
+    "harcourts_company": "Harcourts Indonesia — 坦格朗",
+    "harcourts_desc": "融合Web开发、创意设计和数字培训的多功能角色。",
+    "harcourts_item_1": "年度活动管理：自2019年起每年主导策划和执行年度企业活动。",
+    "harcourts_item_2": "数字培训：2023年起每月开展研讨会，成功指导100+销售代理掌握数字销售策略。",
+    "harcourts_item_3": "系统现代化：将旧系统升级为\"Harcourts One\"（Laravel），提供SEO友好的移动优先界面。",
+    "harcourts_item_4": "开发效率：采用AI工作流（Cursor）进行登录页原型设计，将开发周期缩短40%。",
+    "harcourts_item_5": "创意制作：使用Canva（专家级）管理大批量素材制作，并用Premiere Pro/CapCut制作视频系列。",
+    "edu_title": "信息系统文凭",
+    "edu_company": "Bina Sarana Informatika (BSI)",
+    "edu_desc": "GPA：3.14 — 2023年毕业。",
+    "award_title": "第一名 — 国家科学奥林匹克 (OSN)",
+    "award_desc": "校级 | 高中一至二年级。展现了出色的分析能力和解决问题的能力。"
+  },
+  "projects": {
+    "badge": "项目",
+    "title": "精选作品",
+    "description": "我构建的项目，从SaaS平台到游戏开发。",
+    "view_project": "查看项目",
+    "view_github": "GitHub",
+    "autosapa_title": "AutoSapa",
+    "autosapa_desc": "WhatsApp自动化SaaS平台，约7,000+行代码。支持多会话、专有风险评分垃圾信息防护和可扩展架构。",
+    "kolbl_title": "KOLBL",
+    "kolbl_desc": "轻量级网红数据库，采用SQLite架构实现亚秒级搜索性能，用于快速数据验证。",
+    "harcourts_one_title": "Harcourts One",
+    "harcourts_one_desc": "现代化实时房产管理平台，用SEO友好、移动优先的Laravel界面替代旧WordPress系统。",
+    "roblox_title": "Roblox游戏开发",
+    "roblox_desc": "使用Lua构建的复杂交互式游戏机制，展示超越标准Web应用的高级算法逻辑。",
+    "akasha_title": "Akasha Yoga Academy",
+    "akasha_desc": "为瑜伽学院开发网站和自动化系统，包括AI实施和Wix平台集成。"
+  },
+  "skills": {
+    "badge": "技能",
+    "title": "技术栈与核心能力",
+    "description": "技术开发、AI自动化与创意制作的独特组合。",
+    "cat_dev": "开发",
+    "cat_ai": "AI与自动化",
+    "cat_creative": "创意",
+    "cat_leadership": "领导力"
+  },
+  "contact": {
+    "badge": "联系",
+    "title": "让我们合作",
+    "description": "有兴趣合作吗？我始终欢迎新项目、创意想法，或成为您愿景一部分的机会。",
+    "email_label": "电子邮件",
+    "phone_label": "电话",
+    "location_label": "位置",
+    "location_value": "巴厘岛，印度尼西亚",
+    "portfolio_label": "作品集",
+    "cta_whatsapp": "WhatsApp联系",
+    "cta_email": "发送邮件"
+  },
+  "footer": {
+    "built_with": "使用 Next.js 和 ☕ 构建",
+    "rights": "版权所有。"
+  }
+}

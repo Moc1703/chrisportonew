@@ -1,0 +1,102 @@
+{
+  "nav": {
+    "home": "Beranda",
+    "about": "Tentang",
+    "experience": "Pengalaman",
+    "projects": "Proyek",
+    "skills": "Keahlian",
+    "contact": "Kontak",
+    "cta": "Hubungi Saya"
+  },
+  "hero": {
+    "greeting": "Halo, saya",
+    "subtitle_1": "Full Stack Developer",
+    "subtitle_2": "AI & Automation Engineer",
+    "subtitle_3": "Creative Specialist",
+    "description": "Full Stack Developer & Creative Specialist dengan pengalaman 7+ tahun di Harcourts Indonesia. Ahli dalam AI-Augmented Development untuk membangun platform SaaS 5x lebih cepat. Menggabungkan arsitektur backend Node.js yang kokoh dengan eksekusi kreatif yang cepat.",
+    "cta_primary": "Lihat Karya Saya",
+    "cta_secondary": "Download CV",
+    "stat_years": "Tahun Pengalaman",
+    "stat_trained": "Agen Terlatih",
+    "stat_faster": "Lebih Cepat"
+  },
+  "about": {
+    "badge": "Tentang Saya",
+    "title": "Membangun Solusi Digital dengan Passion & Presisi",
+    "description": "Saya adalah seorang Full Stack Developer & Creative Specialist yang menggabungkan kemampuan teknis mendalam dengan kreativitas visual. Dengan 7+ tahun pengalaman di Harcourts Indonesia, saya telah berhasil memodernisasi sistem legacy ke platform Laravel modern, melatih 100+ agen dalam strategi penjualan digital, dan mengelola produksi kreatif berskala besar.",
+    "description_2": "Saat ini, saya juga aktif sebagai Independent SaaS Architect, merancang platform otomasi WhatsApp dan sistem database influencer. Keahlian unik saya terletak pada kemampuan Digital Enablement — menjembatani teknologi dengan kebutuhan bisnis.",
+    "languages_title": "Bahasa",
+    "lang_id": "Indonesia — Native Speaker",
+    "lang_en": "English — Professional Proficiency"
+  },
+  "experience": {
+    "badge": "Pengalaman",
+    "title": "Perjalanan Karir Saya",
+    "description": "Dari pengembangan frontend hingga arsitektur SaaS, inilah perjalanan profesional saya.",
+    "present": "Sekarang",
+    "akasha_title": "IT Tech Administrator",
+    "akasha_company": "Akasha Yoga Academy",
+    "akasha_desc": "Bertanggung jawab atas otomasi, implementasi AI, dan pengembangan website berbasis Wix.",
+    "indie_title": "Independent SaaS Architect & Developer",
+    "indie_company": "Remote / Freelance",
+    "indie_desc": "Merancang dan membangun platform SaaS independen dengan fokus pada otomasi dan efisiensi.",
+    "indie_item_1": "AutoSapa: Platform otomasi WhatsApp (~7.000+ baris kode) dengan logika Multi-Session dan Risk Scoring proprietary untuk mencegah spam.",
+    "indie_item_2": "KOLBL: Database influencer ringan dengan arsitektur SQLite, performa pencarian sub-detik.",
+    "indie_item_3": "Roblox Game Dev: Mekanik game interaktif menggunakan Lua, mendemonstrasikan logika algoritmik tingkat lanjut.",
+    "harcourts_title": "Frontend Developer, Graphic Designer & Digital Trainer",
+    "harcourts_company": "Harcourts Indonesia — Tangerang",
+    "harcourts_desc": "Peran multi-fungsi yang menggabungkan pengembangan web, desain kreatif, dan pelatihan digital.",
+    "harcourts_item_1": "Manajemen Event Tahunan: Memimpin perencanaan dan eksekusi Corporate Event setiap tahun sejak 2019.",
+    "harcourts_item_2": "Pelatihan Digital: Workshop bulanan sejak 2023, berhasil membimbing 100+ agen dalam Strategi Penjualan Digital.",
+    "harcourts_item_3": "Modernisasi Sistem: Memperbarui sistem legacy menjadi \"Harcourts One\" (Laravel), antarmuka mobile-first yang SEO-friendly.",
+    "harcourts_item_4": "Efisiensi Pengembangan: Mengadopsi workflow AI (Cursor) untuk prototyping landing page, mengurangi waktu pengembangan 40%.",
+    "harcourts_item_5": "Produksi Kreatif: Mengelola pembuatan aset berskala tinggi menggunakan Canva (Expert) dan produksi video (Premiere Pro/CapCut).",
+    "edu_title": "Diploma Sistem Informasi",
+    "edu_company": "Bina Sarana Informatika (BSI)",
+    "edu_desc": "IPK: 3.14 — Lulus tahun 2023.",
+    "award_title": "Juara 1 — Olimpiade Sains Nasional (OSN)",
+    "award_desc": "Tingkat Sekolah | SMA Kelas 1-2. Menunjukkan kemampuan analitis dan pemecahan masalah yang kuat."
+  },
+  "projects": {
+    "badge": "Proyek",
+    "title": "Karya Terpilih",
+    "description": "Proyek-proyek yang saya bangun, dari platform SaaS hingga pengembangan game.",
+    "view_project": "Lihat Proyek",
+    "view_github": "GitHub",
+    "autosapa_title": "AutoSapa",
+    "autosapa_desc": "Platform otomasi WhatsApp SaaS dengan ~7.000+ baris kode. Fitur Multi-Session, Risk Scoring proprietary untuk pencegahan spam, dan arsitektur yang skalabel.",
+    "kolbl_title": "KOLBL",
+    "kolbl_desc": "Database influencer ringan dengan arsitektur SQLite yang menghasilkan performa pencarian sub-detik untuk verifikasi data cepat.",
+    "harcourts_one_title": "Harcourts One",
+    "harcourts_one_desc": "Platform manajemen properti real-time yang modern, menggantikan sistem WordPress legacy dengan antarmuka Laravel yang SEO-friendly dan mobile-first.",
+    "roblox_title": "Roblox Game Dev",
+    "roblox_desc": "Mekanik game interaktif yang kompleks menggunakan Lua, mendemonstrasikan logika algoritmik tingkat lanjut di luar aplikasi web standar.",
+    "akasha_title": "Akasha Yoga Academy",
+    "akasha_desc": "Pengembangan website dan sistem otomasi untuk akademi yoga, termasuk implementasi AI dan integrasi platform Wix."
+  },
+  "skills": {
+    "badge": "Keahlian",
+    "title": "Tech Stack & Kompetensi",
+    "description": "Kombinasi unik antara kemampuan teknis, otomasi AI, dan produksi kreatif.",
+    "cat_dev": "Development",
+    "cat_ai": "AI & Automation",
+    "cat_creative": "Creative",
+    "cat_leadership": "Leadership"
+  },
+  "contact": {
+    "badge": "Kontak",
+    "title": "Mari Berkolaborasi",
+    "description": "Tertarik bekerja sama? Saya selalu terbuka untuk proyek baru, ide kreatif, atau kesempatan untuk menjadi bagian dari visi Anda.",
+    "email_label": "Email",
+    "phone_label": "Telepon",
+    "location_label": "Lokasi",
+    "location_value": "Bali, Indonesia",
+    "portfolio_label": "Portfolio",
+    "cta_whatsapp": "Chat via WhatsApp",
+    "cta_email": "Kirim Email"
+  },
+  "footer": {
+    "built_with": "Dibangun dengan Next.js & ☕",
+    "rights": "All rights reserved."
+  }
+}

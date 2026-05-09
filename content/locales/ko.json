@@ -1,0 +1,102 @@
+{
+  "nav": {
+    "home": "홈",
+    "about": "소개",
+    "experience": "경력",
+    "projects": "프로젝트",
+    "skills": "기술",
+    "contact": "연락처",
+    "cta": "연락하기"
+  },
+  "hero": {
+    "greeting": "안녕하세요, 저는",
+    "subtitle_1": "풀스택 개발자",
+    "subtitle_2": "AI & 자동화 엔지니어",
+    "subtitle_3": "크리에이티브 전문가",
+    "description": "Harcourts Indonesia에서 7년 이상의 경험을 가진 풀스택 개발자 & 크리에이티브 전문가. AI 증강 개발 전문가로 SaaS 플랫폼을 5배 빠르게 구축합니다. 견고한 Node.js 백엔드 아키텍처와 신속한 크리에이티브 실행을 결합합니다.",
+    "cta_primary": "포트폴리오 보기",
+    "cta_secondary": "이력서 다운로드",
+    "stat_years": "년 경력",
+    "stat_trained": "교육 수료생",
+    "stat_faster": "개발 속도"
+  },
+  "about": {
+    "badge": "소개",
+    "title": "열정과 정밀함으로 디지털 솔루션 구축",
+    "description": "저는 깊은 기술 역량과 시각적 창의성을 결합하는 풀스택 개발자 & 크리에이티브 전문가입니다. Harcourts Indonesia에서 7년 이상 근무하며 레거시 시스템을 현대적인 Laravel 플랫폼으로 성공적으로 현대화하고, 100명 이상의 에이전트에게 디지털 영업 전략을 교육하며, 대규모 크리에이티브 프로덕션을 관리했습니다.",
+    "description_2": "현재 독립 SaaS 아키텍트로도 활동하며, WhatsApp 자동화 플랫폼과 인플루언서 데이터베이스 시스템을 설계하고 있습니다. 저의 독특한 강점은 디지털 역량 강화에 있으며, 기술과 비즈니스 니즈 사이의 다리 역할을 합니다.",
+    "languages_title": "언어",
+    "lang_id": "인도네시아어 — 모국어",
+    "lang_en": "영어 — 전문 업무 수준"
+  },
+  "experience": {
+    "badge": "경력",
+    "title": "커리어 여정",
+    "description": "프론트엔드 개발부터 SaaS 아키텍처까지, 저의 전문적 성장 과정입니다.",
+    "present": "현재",
+    "akasha_title": "IT 기술 관리자",
+    "akasha_company": "Akasha Yoga Academy",
+    "akasha_desc": "자동화, AI 구현 및 Wix 플랫폼 기반 웹사이트 개발을 담당합니다.",
+    "indie_title": "독립 SaaS 아키텍트 & 개발자",
+    "indie_company": "원격 / 프리랜서",
+    "indie_desc": "자동화와 효율성에 중점을 둔 독립 SaaS 플랫폼을 설계하고 구축합니다.",
+    "indie_item_1": "AutoSapa: 멀티세션 로직과 독자적인 리스크 스코어링을 갖춘 WhatsApp 자동화 플랫폼(약 7,000줄 이상의 코드).",
+    "indie_item_2": "KOLBL: SQLite 아키텍처를 사용한 경량 인플루언서 데이터베이스, 1초 미만의 검색 성능 달성.",
+    "indie_item_3": "Roblox 게임 개발: Lua를 사용한 복잡한 인터랙티브 게임 메커니즘, 고급 알고리즘 로직 시연.",
+    "harcourts_title": "프론트엔드 개발자, 그래픽 디자이너 & 디지털 트레이너",
+    "harcourts_company": "Harcourts Indonesia — 탕에랑",
+    "harcourts_desc": "웹 개발, 크리에이티브 디자인, 디지털 교육을 결합한 다기능 역할.",
+    "harcourts_item_1": "연례 이벤트 관리: 2019년부터 매년 연례 기업 이벤트의 기획 및 실행을 주도.",
+    "harcourts_item_2": "디지털 교육: 2023년부터 월간 워크숍 진행, 100명 이상의 에이전트에게 디지털 영업 전략 멘토링 성공.",
+    "harcourts_item_3": "시스템 현대화: 레거시 시스템을 \"Harcourts One\"(Laravel)으로 개편, SEO 친화적이고 모바일 우선 인터페이스 제공.",
+    "harcourts_item_4": "개발 효율성: 랜딩 페이지 프로토타이핑에 AI 워크플로(Cursor)를 도입하여 개발 소요 시간 40% 단축.",
+    "harcourts_item_5": "크리에이티브 프로덕션: Canva(전문가 수준)를 사용한 대량 에셋 제작 관리 및 Premiere Pro/CapCut 영상 시리즈 제작.",
+    "edu_title": "정보시스템 디플로마",
+    "edu_company": "Bina Sarana Informatika (BSI)",
+    "edu_desc": "GPA: 3.14 — 2023년 졸업.",
+    "award_title": "1위 — 국가 과학 올림피아드 (OSN)",
+    "award_desc": "학교 수준 | 고등학교 1-2학년. 뛰어난 분석 능력과 문제 해결 능력을 입증."
+  },
+  "projects": {
+    "badge": "프로젝트",
+    "title": "주요 작품",
+    "description": "SaaS 플랫폼부터 게임 개발까지, 제가 구축한 프로젝트입니다.",
+    "view_project": "프로젝트 보기",
+    "view_github": "GitHub",
+    "autosapa_title": "AutoSapa",
+    "autosapa_desc": "약 7,000줄 이상의 코드를 가진 WhatsApp 자동화 SaaS 플랫폼. 멀티세션 지원, 스팸 방지를 위한 독자적 리스크 스코어링, 확장 가능한 아키텍처.",
+    "kolbl_title": "KOLBL",
+    "kolbl_desc": "SQLite 아키텍처를 사용한 경량 인플루언서 데이터베이스, 빠른 데이터 검증을 위한 1초 미만의 검색 성능.",
+    "harcourts_one_title": "Harcourts One",
+    "harcourts_one_desc": "레거시 WordPress 시스템을 SEO 친화적이고 모바일 우선 Laravel 인터페이스로 대체한 현대적 실시간 부동산 관리 플랫폼.",
+    "roblox_title": "Roblox 게임 개발",
+    "roblox_desc": "Lua를 사용하여 구축한 복잡한 인터랙티브 게임 메커니즘, 표준 웹 앱을 넘어서는 고급 알고리즘 로직 시연.",
+    "akasha_title": "Akasha Yoga Academy",
+    "akasha_desc": "요가 아카데미를 위한 웹사이트 개발 및 자동화 시스템 구축, AI 구현 및 Wix 플랫폼 통합 포함."
+  },
+  "skills": {
+    "badge": "기술",
+    "title": "기술 스택 & 역량",
+    "description": "기술 개발, AI 자동화, 크리에이티브 프로덕션의 고유한 조합.",
+    "cat_dev": "개발",
+    "cat_ai": "AI & 자동화",
+    "cat_creative": "크리에이티브",
+    "cat_leadership": "리더십"
+  },
+  "contact": {
+    "badge": "연락처",
+    "title": "함께 만들어요",
+    "description": "협업에 관심이 있으신가요? 새로운 프로젝트, 창의적인 아이디어, 또는 비전의 일부가 될 기회를 항상 환영합니다.",
+    "email_label": "이메일",
+    "phone_label": "전화",
+    "location_label": "위치",
+    "location_value": "발리, 인도네시아",
+    "portfolio_label": "포트폴리오",
+    "cta_whatsapp": "WhatsApp 채팅",
+    "cta_email": "이메일 보내기"
+  },
+  "footer": {
+    "built_with": "Next.js와 ☕로 제작",
+    "rights": "All rights reserved."
+  }
+}

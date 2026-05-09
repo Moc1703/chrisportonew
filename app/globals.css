@@ -3,80 +3,76 @@
 @tailwind utilities;
 
 @layer base {
-  html {
-    scroll-behavior: smooth;
-    -webkit-text-size-adjust: 100%;
-    -webkit-tap-highlight-color: transparent;
-  }
-  
   body {
-    @apply bg-gray-50 text-gray-900;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    touch-action: manipulation;
+    @apply bg-base-900 text-ink-100 font-sans antialiased overflow-x-hidden selection:bg-white selection:text-black;
   }
-  
-  /* Prevent text selection on buttons and interactive elements */
-  button, a {
-    -webkit-tap-highlight-color: transparent;
-    touch-action: manipulation;
+
+  ::selection {
+    @apply bg-white text-black;
   }
-  
-  /* Optimize font rendering */
-  * {
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+
+  /* Sleek Scrollbar */
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-base-900;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-base-light rounded-full;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-ink-300;
   }
 }
 
 @layer components {
-  .section-padding {
-    @apply py-16 px-4 sm:py-20 sm:px-6 lg:py-24 lg:px-8;
-  }
-  
   .container-custom {
-    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
-  }
-  
-  .btn-primary {
-    @apply bg-accent-500 hover:bg-accent-400 active:bg-accent-600 text-primary-950 font-bold py-3 px-8 rounded-none transition-all duration-200 hover:shadow-md min-h-[48px] flex items-center justify-center uppercase tracking-wider text-sm border-none;
-  }
-  
-  .btn-secondary {
-    @apply bg-transparent hover:bg-white active:bg-gray-50 text-white font-bold py-3 px-8 rounded-none border-2 border-white transition-all duration-200 hover:text-primary-950 min-h-[48px] flex items-center justify-center uppercase tracking-wider text-sm;
-  }
-  
-  /* Touch-friendly interactive elements */
-  .touch-target {
-    @apply min-h-[44px] min-w-[44px];
+    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
   }
 
-  /* Card hover effects */
-  .card-hover {
-    @apply transition-all duration-200 hover:shadow-lg border border-gray-200 rounded-none bg-white;
+  /* Sleek Cards & Borders */
+  .tech-border {
+    @apply border border-base-border;
   }
 
-  /* Gradient text - Removed for corporate look */
-  .gradient-text {
-    @apply text-primary-900;
+  .tech-card {
+    @apply bg-base-800/30 border border-base-border backdrop-blur-xl transition-all duration-500;
   }
 
-  /* Section backgrounds */
-  .section-construction {
-    @apply bg-white;
+  .tech-card:hover {
+    @apply bg-base-800/80 border-base-light;
   }
 
-  /* UT Style Utilities */
-  .ut-title {
-    @apply relative pb-4 mb-6;
-  }
-  
-  .ut-title::after {
-    content: '';
-    @apply absolute bottom-0 left-0 w-12 h-1 bg-accent-500;
+  .tech-badge {
+    @apply inline-flex items-center gap-2 px-2.5 py-1 text-[10px] font-mono uppercase tracking-widest border border-base-border text-ink-200 bg-base-800/50 backdrop-blur-md;
   }
 
-  .ut-card-image {
-    @apply relative overflow-hidden bg-gray-200 aspect-[4/3];
+  .section-padding {
+    @apply py-24 sm:py-32;
   }
+
+  .section-title {
+    @apply font-sans text-4xl sm:text-5xl md:text-6xl font-medium text-ink-50 leading-[1.1] mb-6 tracking-tight;
+  }
+
+  .section-description {
+    @apply text-base sm:text-lg text-ink-200 max-w-2xl font-light leading-relaxed;
+  }
+}
+
+/* Very subtle grid background for tech feel */
+.bg-grid-tech {
+  background-image: 
+    linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
+  background-size: 50px 50px;
+}
+
+/* Glass panel utility */
+.glass-panel {
+  background: rgba(10, 10, 10, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }

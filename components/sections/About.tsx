@@ -1,83 +1,86 @@
-import { Award, Users, Clock, Target } from 'lucide-react'
+'use client'
 
-interface AboutProps {
-  data: {
-    title: string
-    description: string
-    mission: string
-    vision: string
-    values: Array<{ title: string; description: string }>
-    stats: Array<{ number: string; label: string }>
-  }
-}
+import { useTranslation } from '@/lib/i18n'
+import { Globe } from 'lucide-react'
 
-export default function About({ data }: AboutProps) {
-  const icons = [Award, Users, Clock, Target]
+const techStack = [
+  { name: 'Laravel' },
+  { name: 'Node.js' },
+  { name: 'React' },
+  { name: 'Next.js' },
+  { name: 'TypeScript' },
+  { name: 'AI / Cursor' },
+  { name: 'Canva' },
+  { name: 'n8n / Zapier' },
+]
+
+export default function About() {
+  const { t } = useTranslation()
 
   return (
-    <section id="about" className="py-20 sm:py-28 bg-white">
+    <section id="about" className="section-padding relative">
       <div className="container-custom">
-        {/* Corporate Split Layout */}
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 mb-20">
-          {/* Left Column: Image Block (Simulated) */}
-          <div className="relative">
-            <div className="bg-gray-200 w-full h-full min-h-[400px] relative overflow-hidden">
-              <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-bold text-xl uppercase tracking-widest border-2 border-gray-300 m-4">
-                Corporate Image Placeholder
-              </div>
-              {/* Yellow Accent Box */}
-              <div className="absolute bottom-0 right-0 w-1/2 h-2 bg-yellow-400"></div>
-            </div>
-          </div>
+        {/* Header */}
+        <div className="mb-16 md:mb-20">
+          <span className="tech-badge mb-4">
+            {t('about.badge')}
+          </span>
+          <h2 className="section-title mb-0">{t('about.title')}</h2>
+        </div>
 
-          {/* Right Column: Text Content */}
-          <div className="flex flex-col justify-center">
-            <h2 className="text-3xl sm:text-4xl font-black text-black mb-6 uppercase tracking-tight relative inline-block ut-title">
-              {data.title}
-            </h2>
-            <p className="text-lg text-gray-600 leading-relaxed mb-10">
-              {data.description}
-            </p>
+        <div className="grid lg:grid-cols-12 gap-8 lg:gap-12">
+          {/* Left — Avatar & Bio (7 cols) */}
+          <div className="lg:col-span-7 flex flex-col md:flex-row gap-8 items-start">
+            {/* Avatar Block */}
+            <div className="w-24 h-24 md:w-32 md:h-32 flex-shrink-0 bg-base-800 rounded-2xl tech-border flex items-center justify-center relative overflow-hidden group">
+              <span className="text-3xl font-sans font-medium text-ink-50 group-hover:scale-110 transition-transform duration-500">CI</span>
+            </div>
             
-            {/* Stats Strip - Integrated into text column */}
-            <div className="grid grid-cols-2 gap-8 border-t border-gray-200 pt-8">
-              {data.stats.slice(0, 2).map((stat, index) => (
-                <div key={index}>
-                  <div className="text-4xl font-black text-yellow-500 mb-1">{stat.number}</div>
-                  <div className="text-xs font-bold text-black uppercase tracking-widest">{stat.label}</div>
+            <div className="space-y-6">
+              <p className="text-base md:text-lg text-ink-100 leading-relaxed font-light">
+                {t('about.description')}
+              </p>
+              <p className="text-sm md:text-base text-ink-200 leading-relaxed font-light">
+                {t('about.description_2')}
+              </p>
+
+              {/* Languages */}
+              <div className="pt-6 mt-6 border-t border-base-border">
+                <div className="flex items-center gap-2 mb-4">
+                  <Globe className="w-4 h-4 text-ink-200" />
+                  <span className="text-[10px] font-mono uppercase tracking-widest text-ink-200">{t('about.languages_title')}</span>
                 </div>
-              ))}
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center gap-3">
+                    <span className="text-lg">🇮🇩</span>
+                    <span className="text-sm text-ink-100">{t('about.lang_id')}</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <span className="text-lg">🇬🇧</span>
+                    <span className="text-sm text-ink-100">{t('about.lang_en')}</span>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
 
-        {/* Vision Mission - Horizontal Cards */}
-        <div className="grid md:grid-cols-2 gap-8 mb-20">
-          <div className="bg-gray-50 p-10 border-l-4 border-black hover:border-yellow-400 transition-colors group">
-            <h3 className="text-xl font-black text-black uppercase mb-4 group-hover:text-yellow-600 transition-colors">Visi Perusahaan</h3>
-            <p className="text-gray-600 leading-relaxed">{data.vision}</p>
-          </div>
-          <div className="bg-gray-50 p-10 border-l-4 border-black hover:border-yellow-400 transition-colors group">
-            <h3 className="text-xl font-black text-black uppercase mb-4 group-hover:text-yellow-600 transition-colors">Misi Perusahaan</h3>
-            <p className="text-gray-600 leading-relaxed">{data.mission}</p>
-          </div>
-        </div>
-
-        {/* Values - Minimalist Grid */}
-        <div className="border-t border-gray-200 pt-16">
-          <h3 className="text-2xl font-black text-black mb-10 uppercase">Nilai Inti</h3>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
-            {data.values.map((value, index) => (
-              <div key={index} className="group">
-                <div className="w-12 h-12 border-2 border-gray-200 flex items-center justify-center mb-4 group-hover:border-yellow-400 group-hover:bg-yellow-400 transition-all">
-                  <span className="font-bold text-lg text-gray-400 group-hover:text-black">{index + 1}</span>
-                </div>
-                <h4 className="text-sm font-bold text-black uppercase mb-2 tracking-wide">
-                  {value.title}
-                </h4>
-                <p className="text-sm text-gray-500 leading-relaxed">{value.description}</p>
+          {/* Right — Tech Stack Brutalist List (5 cols) */}
+          <div className="lg:col-span-5">
+            <div className="tech-card rounded-2xl p-6 sm:p-8 h-full">
+              <h3 className="text-[10px] font-mono text-ink-200 uppercase tracking-widest mb-6">
+                Core Stack
+              </h3>
+              <div className="flex flex-wrap gap-2">
+                {techStack.map((tech, index) => (
+                  <div
+                    key={index}
+                    className="px-3 py-1.5 rounded-full tech-border bg-base-900/50 text-ink-100 text-xs hover:bg-white hover:text-black hover:border-white transition-colors duration-300 cursor-default"
+                  >
+                    {tech.name}
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </div>

@@ -1,46 +1,41 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import type { Metadata, Viewport } from 'next'
+import { Inter, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
+const jetbrains = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' })
+
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: '#000000',
+}
 
 export const metadata: Metadata = {
-  title: 'Konsultan & Training Alat Berat | Profesional & Terpercaya',
-  description: 'Layanan konsultan dan training alat berat profesional. Kami menyediakan jasa konsultasi dan pelatihan untuk operator alat berat dengan pengalaman bertahun-tahun.',
-  keywords: 'konsultan alat berat, training alat berat, pelatihan alat berat, jasa konsultan alat berat, operator alat berat',
-  authors: [{ name: 'Company Profile' }],
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-  },
+  title: 'Christian Immanuel | Full Stack Developer & AI Engineer',
+  description: 'Portfolio of Christian Immanuel Septianto — Full Stack Developer, AI & Automation Engineer, and Creative Specialist based in Bali, Indonesia.',
+  keywords: 'full stack developer, AI engineer, automation, portfolio, christian immanuel, bali developer, laravel, node.js, saas architect',
+  authors: [{ name: 'Christian Immanuel Septianto' }],
   openGraph: {
-    title: 'Konsultan & Training Alat Berat | Profesional & Terpercaya',
-    description: 'Layanan konsultan dan training alat berat profesional',
+    title: 'Christian Immanuel | Full Stack Developer',
+    description: 'Full Stack Developer & AI Engineer with 7+ years experience. Building SaaS platforms 5x faster.',
     type: 'website',
     locale: 'id_ID',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Konsultan & Training Alat Berat',
-    description: 'Layanan konsultan dan training alat berat profesional',
+    title: 'Christian Immanuel | Full Stack Developer',
+    description: 'Full Stack Developer & AI Engineer based in Bali, Indonesia.',
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
   },
   alternates: {
     canonical: '/',
   },
-  themeColor: '#0f172a',
 }
 
 export default function RootLayout({
@@ -49,11 +44,16 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="id">
+    <html lang="id" className={`${inter.variable} ${jetbrains.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>
-      <body className={inter.className}>{children}</body>
+      <body className="bg-base-900 text-ink-100 font-sans antialiased min-h-screen">
+        <div className="bg-grid-tech fixed inset-0 pointer-events-none z-0" />
+        <div className="relative z-10">
+          {children}
+        </div>
+      </body>
     </html>
   )
 }

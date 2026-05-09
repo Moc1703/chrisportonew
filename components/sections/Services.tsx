@@ -1,75 +1,129 @@
-import { Wrench, BookOpen, Users, ClipboardCheck, Settings, TrendingUp } from 'lucide-react'
+'use client'
 
-interface ServicesProps {
-  data: {
-    title: string
-    description: string
-    services: Array<{
-      title: string
-      description: string
-      icon: string
-    }>
-  }
+import { useTranslation } from '@/lib/i18n'
+
+interface TimelineItem {
+  year: string
+  titleKey: string
+  companyKey: string
+  descKey: string
+  itemKeys?: string[]
+  tags?: string[]
 }
 
-export default function Services({ data }: ServicesProps) {
-  const iconMap: { [key: string]: any } = {
-    wrench: Wrench,
-    book: BookOpen,
-    users: Users,
-    clipboard: ClipboardCheck,
-    settings: Settings,
-    trending: TrendingUp,
-  }
+const timeline: TimelineItem[] = [
+  {
+    year: '2026',
+    titleKey: 'experience.akasha_title',
+    companyKey: 'experience.akasha_company',
+    descKey: 'experience.akasha_desc',
+    tags: ['Wix', 'AI', 'Automation'],
+  },
+  {
+    year: '2023',
+    titleKey: 'experience.indie_title',
+    companyKey: 'experience.indie_company',
+    descKey: 'experience.indie_desc',
+    itemKeys: ['experience.indie_item_1', 'experience.indie_item_2', 'experience.indie_item_3'],
+    tags: ['Node.js', 'SQLite', 'Lua', 'SaaS'],
+  },
+  {
+    year: '2018',
+    titleKey: 'experience.harcourts_title',
+    companyKey: 'experience.harcourts_company',
+    descKey: 'experience.harcourts_desc',
+    itemKeys: [
+      'experience.harcourts_item_1',
+      'experience.harcourts_item_2',
+      'experience.harcourts_item_3',
+      'experience.harcourts_item_4',
+      'experience.harcourts_item_5',
+    ],
+    tags: ['Laravel', 'Canva', 'Premiere Pro', 'AI Workflow'],
+  },
+  {
+    year: '2023',
+    titleKey: 'experience.edu_title',
+    companyKey: 'experience.edu_company',
+    descKey: 'experience.edu_desc',
+  },
+  {
+    year: 'SMA',
+    titleKey: 'experience.award_title',
+    companyKey: '',
+    descKey: 'experience.award_desc',
+  },
+]
+
+export default function Experience() {
+  const { t } = useTranslation()
 
   return (
-    <section id="services" className="py-20 sm:py-24 bg-gray-50">
+    <section id="experience" className="section-padding relative">
       <div className="container-custom">
-        {/* Section header - Left Aligned */}
-        <div className="max-w-3xl mb-16">
-          <h2 className="text-3xl sm:text-4xl font-black text-black mb-6 uppercase tracking-tight ut-title inline-block">
-            {data.title}
-          </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            {data.description}
-          </p>
+        {/* Header */}
+        <div className="mb-16 md:mb-24">
+          <span className="tech-badge mb-4">
+            {t('experience.badge')}
+          </span>
+          <h2 className="section-title mb-6">{t('experience.title')}</h2>
+          <p className="section-description">{t('experience.description')}</p>
         </div>
 
-        {/* Services grid - Product Card Style */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {data.services.map((service, index) => {
-            const Icon = iconMap[service.icon] || Wrench
-            return (
-              <div
-                key={index}
-                className="bg-white group border-b-4 border-transparent hover:border-yellow-400 transition-all shadow-sm hover:shadow-lg"
-              >
-                {/* Image Placeholder Block */}
-                <div className="bg-gray-200 aspect-video w-full relative overflow-hidden">
-                   <div className="absolute inset-0 flex items-center justify-center text-gray-400 font-bold uppercase tracking-widest">
-                     Service Image
-                   </div>
-                   {/* Overlay on hover */}
-                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-all"></div>
-                </div>
-                
-                <div className="p-8">
-                  <div className="flex items-center gap-3 mb-4">
-                    <Icon className="w-5 h-5 text-yellow-500" />
-                    <h3 className="text-lg font-black text-black uppercase tracking-tight group-hover:text-yellow-600 transition-colors">
-                      {service.title}
-                    </h3>
+        {/* Minimalist Vertical Timeline */}
+        <div className="max-w-4xl relative">
+          {/* Vertical Line */}
+          <div className="absolute left-[7px] top-2 bottom-0 w-[1px] bg-base-light hidden sm:block"></div>
+
+          <div className="space-y-12 sm:space-y-16">
+            {timeline.map((item, index) => {
+              return (
+                <div key={index} className="relative sm:pl-12 group">
+                  {/* Timeline Dot */}
+                  <div className="hidden sm:block absolute left-0 top-1.5 w-[15px] h-[15px] rounded-full bg-base-900 border border-base-light group-hover:border-white transition-colors duration-300 z-10">
+                    <div className="absolute inset-1 rounded-full bg-base-light group-hover:bg-white transition-colors duration-300"></div>
                   </div>
-                  <p className="text-sm text-gray-600 leading-relaxed mb-6">
-                    {service.description}
-                  </p>
-                  <div className="flex items-center text-xs font-bold text-black uppercase tracking-widest group-hover:translate-x-2 transition-transform cursor-pointer">
-                    Selengkapnya <span className="text-yellow-500 ml-2">→</span>
+
+                  <div className="flex flex-col gap-2 items-start mb-4">
+                    <div>
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-3 mb-1">
+                        <h3 className="text-xl md:text-2xl font-medium text-ink-50">{t(item.titleKey)}</h3>
+                        <span className="text-xs font-mono text-ink-200 bg-base-800 px-2.5 py-1 rounded-md border border-base-light w-fit">
+                          {item.year}
+                        </span>
+                      </div>
+                      {item.companyKey && (
+                        <p className="text-xs font-mono uppercase tracking-widest text-ink-300 mb-4">{t(item.companyKey)}</p>
+                      )}
+                      
+                      <p className="text-sm md:text-base text-ink-200 leading-relaxed font-light mb-6">{t(item.descKey)}</p>
+
+                      {/* Detail items */}
+                      {item.itemKeys && (
+                        <ul className="space-y-2 mb-6">
+                          {item.itemKeys.map((key, i) => (
+                            <li key={i} className="text-sm text-ink-200 font-light pl-4 relative">
+                              <span className="absolute left-0 top-2 w-1 h-1 bg-base-light rounded-full"></span>
+                              {t(key)}
+                            </li>
+                          ))}
+                        </ul>
+                      )}
+
+                      {/* Tags */}
+                      {item.tags && (
+                        <div className="flex flex-wrap gap-2">
+                          {item.tags.map((tag, i) => (
+                            <span key={i} className="px-2.5 py-1 rounded-full border border-base-border bg-base-900 text-[10px] font-mono text-ink-300 uppercase tracking-widest">{tag}</span>
+                          ))}
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
-              </div>
-            )
-          })}
+              )
+            })}
+          </div>
         </div>
       </div>
     </section>

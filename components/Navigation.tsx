@@ -2,8 +2,11 @@
 
 import { useState, useEffect } from 'react'
 import { Menu, X } from 'lucide-react'
+import { useTranslation } from '@/lib/i18n'
+import LanguageSwitcher from './LanguageSwitcher'
 
 export default function Navigation() {
+  const { t } = useTranslation()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
 
@@ -16,7 +19,6 @@ export default function Navigation() {
   }, [])
 
   useEffect(() => {
-    // Prevent body scroll when mobile menu is open
     if (isMobileMenuOpen) {
       document.body.style.overflow = 'hidden'
     } else {
@@ -36,81 +38,94 @@ export default function Navigation() {
   }
 
   const navItems = [
-    { id: 'home', label: 'Beranda' },
-    { id: 'about', label: 'Tentang Kami' },
-    { id: 'services', label: 'Layanan' },
-    { id: 'gallery', label: 'Galeri' },
-    { id: 'contact', label: 'Kontak' },
+    { id: 'home', label: t('nav.home') },
+    { id: 'about', label: t('nav.about') },
+    { id: 'experience', label: t('nav.experience') },
+    { id: 'projects', label: t('nav.projects') },
+    { id: 'skills', label: t('nav.skills') },
+    { id: 'contact', label: t('nav.contact') },
   ]
 
   return (
     <>
-      {/* Top Bar - Corporate Style */}
-      <div className="hidden md:block bg-gray-100 text-xs py-2 border-b border-gray-200">
-        <div className="container-custom flex justify-end gap-6 text-gray-600">
-          <span>Karir</span>
-          <span>Hubungan Investor</span>
-          <span>Berita</span>
-          <span className="font-bold text-black">Hubungi Kami: +62 21 1234 5678</span>
-        </div>
-      </div>
-
-      <nav className="sticky top-0 left-0 right-0 z-50 bg-white shadow-sm">
+      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+        isScrolled
+          ? 'glass-panel py-2'
+          : 'bg-transparent py-4'
+      }`}>
         <div className="container-custom">
-          <div className="flex items-center justify-between h-20">
-            <div className="flex items-center gap-4">
-              {/* Logo Block */}
-              <div className="w-12 h-12 bg-yellow-400 flex items-center justify-center text-black font-black text-2xl">A</div>
-              <div className="flex flex-col">
-                <h1 className="text-xl font-black text-black uppercase leading-none tracking-tighter">
-                  ALAT BERAT
-                </h1>
-                <span className="text-xs font-bold text-gray-500 uppercase tracking-widest">Professional</span>
+          <div className="flex items-center justify-between h-14">
+            {/* Logo */}
+            <button onClick={() => scrollToSection('home')} className="flex items-center gap-3 group">
+              <div className="w-8 h-8 bg-white text-black flex items-center justify-center font-sans text-sm font-bold rounded-full group-hover:scale-105 transition-transform duration-300">
+                CI
               </div>
-            </div>
+              <div className="flex flex-col text-left">
+                <span className="text-sm font-medium text-ink-50 tracking-tight">Christian Immanuel</span>
+                <span className="text-[9px] font-mono text-ink-300 uppercase tracking-widest mt-0.5">Developer</span>
+              </div>
+            </button>
 
-            {/* Desktop Menu - Right Aligned & Clean */}
-            <div className="hidden md:flex items-center h-full">
+            {/* Desktop Menu */}
+            <div className="hidden lg:flex items-center gap-1">
               {navItems.map((item) => (
                 <button
                   key={item.id}
                   onClick={() => scrollToSection(item.id)}
-                  className="h-full flex items-center px-5 text-gray-800 hover:text-black hover:bg-gray-50 font-bold text-xs uppercase tracking-widest transition-colors border-b-4 border-transparent hover:border-yellow-400"
+                  className="px-3 py-1.5 text-xs font-mono uppercase tracking-widest text-ink-200 hover:text-white transition-colors duration-300"
                 >
                   {item.label}
                 </button>
               ))}
-              <button className="ml-6 bg-black text-white text-xs font-bold uppercase px-6 py-3 hover:bg-yellow-400 hover:text-black transition-colors tracking-widest">
-                Penawaran
-              </button>
+              <div className="ml-4 pl-4 border-l border-base-light flex items-center gap-4">
+                <LanguageSwitcher />
+                <button
+                  onClick={() => scrollToSection('contact')}
+                  className="px-5 py-2 bg-white text-black text-xs font-mono font-bold uppercase tracking-widest rounded-full hover:bg-ink-100 hover:scale-105 transition-all duration-300"
+                >
+                  {t('nav.cta')}
+                </button>
+              </div>
             </div>
 
-            {/* Mobile Menu Button */}
-            <button
-              className="md:hidden text-black p-2"
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            >
-              {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            {/* Mobile Controls */}
+            <div className="flex lg:hidden items-center gap-3">
+              <LanguageSwitcher />
+              <button
+                className="text-ink-100 p-2 hover:text-white transition-colors"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              >
+                {isMobileMenuOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
+              </button>
+            </div>
           </div>
         </div>
 
         {/* Mobile Menu */}
         <div
-          className={`md:hidden overflow-hidden bg-white border-t border-gray-100 ${
-            isMobileMenuOpen ? 'max-h-screen' : 'max-h-0'
-          } transition-all duration-300`}
+          className={`lg:hidden fixed inset-0 top-[60px] bg-base-900/95 backdrop-blur-xl transition-all duration-300 ${
+            isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+          }`}
         >
-          <div className="container-custom py-4 space-y-2">
-            {navItems.map((item) => (
+          <div className="container-custom py-8 space-y-1">
+            {navItems.map((item, index) => (
               <button
                 key={item.id}
                 onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left py-3 px-4 text-gray-800 hover:bg-yellow-50 font-bold uppercase text-sm border-l-4 border-transparent hover:border-yellow-400"
+                className="block w-full text-left py-4 text-sm font-mono uppercase tracking-widest text-ink-100 hover:text-white transition-colors duration-300 border-b border-base-border"
+                style={{ transitionDelay: `${index * 50}ms` }}
               >
                 {item.label}
               </button>
             ))}
+            <div className="pt-8">
+              <button
+                onClick={() => scrollToSection('contact')}
+                className="w-full py-4 bg-white text-black font-mono font-bold uppercase tracking-widest rounded-lg hover:bg-ink-100 transition-colors"
+              >
+                {t('nav.cta')}
+              </button>
+            </div>
           </div>
         </div>
       </nav>

@@ -1,129 +1,123 @@
 'use client'
 
-import { useState } from 'react'
-import { X, ChevronLeft, ChevronRight } from 'lucide-react'
+import { useTranslation } from '@/lib/i18n'
+import { ExternalLink, Github, ArrowRight } from 'lucide-react'
 
-interface GalleryProps {
-  data: {
-    title: string
-    description: string
-    images: Array<{
-      src: string
-      alt: string
-      caption: string
-    }>
-  }
+interface Project {
+  titleKey: string
+  descKey: string
+  tags: string[]
+  size: 'large' | 'medium' | 'small'
+  github?: string
+  link?: string
 }
 
-export default function Gallery({ data }: GalleryProps) {
-  const [selectedImage, setSelectedImage] = useState<number | null>(null)
+const projects: Project[] = [
+  {
+    titleKey: 'projects.autosapa_title',
+    descKey: 'projects.autosapa_desc',
+    tags: ['Node.js', 'Express', 'WhatsApp API', 'Risk Scoring'],
+    size: 'large',
+    github: 'https://github.com/Moc1703',
+  },
+  {
+    titleKey: 'projects.kolbl_title',
+    descKey: 'projects.kolbl_desc',
+    tags: ['SQLite', 'Node.js', 'REST API'],
+    size: 'medium',
+    github: 'https://github.com/Moc1703',
+  },
+  {
+    titleKey: 'projects.harcourts_one_title',
+    descKey: 'projects.harcourts_one_desc',
+    tags: ['Laravel', 'PHP', 'MySQL', 'SEO'],
+    size: 'medium',
+  },
+  {
+    titleKey: 'projects.roblox_title',
+    descKey: 'projects.roblox_desc',
+    tags: ['Lua', 'Game Logic', 'Roblox Studio'],
+    size: 'small',
+  },
+  {
+    titleKey: 'projects.akasha_title',
+    descKey: 'projects.akasha_desc',
+    tags: ['Wix', 'AI', 'n8n', 'Automation'],
+    size: 'small',
+  },
+]
 
-  const openModal = (index: number) => {
-    setSelectedImage(index)
-  }
-
-  const closeModal = () => {
-    setSelectedImage(null)
-  }
-
-  const nextImage = () => {
-    if (selectedImage !== null) {
-      setSelectedImage((selectedImage + 1) % data.images.length)
-    }
-  }
-
-  const prevImage = () => {
-    if (selectedImage !== null) {
-      setSelectedImage((selectedImage - 1 + data.images.length) % data.images.length)
-    }
-  }
+export default function Projects() {
+  const { t } = useTranslation()
 
   return (
-    <section id="gallery" className="section-padding bg-white">
-      <div className="container-custom">
-        <div className="text-center mb-10 sm:mb-16">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-3 sm:mb-4 px-2">
-            {data.title}
-          </h2>
-          <div className="w-24 h-1 bg-primary-600 mx-auto mb-4 sm:mb-6"></div>
-          <p className="text-base sm:text-lg text-gray-600 max-w-3xl mx-auto px-4">
-            {data.description}
-          </p>
+    <section id="projects" className="section-padding border-t border-base-border relative">
+      <div className="container-custom relative z-10">
+        {/* Header */}
+        <div className="mb-16 md:mb-20 flex flex-col md:flex-row md:items-end justify-between gap-8">
+          <div>
+            <span className="tech-badge mb-4">
+              {t('projects.badge')}
+            </span>
+            <h2 className="section-title mb-4">{t('projects.title')}</h2>
+            <p className="section-description">{t('projects.description')}</p>
+          </div>
+          
+          <a href="https://github.com/Moc1703" target="_blank" rel="noopener noreferrer" 
+             className="inline-flex items-center gap-2 text-sm text-ink-200 hover:text-white transition-colors group">
+            View All Projects <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+          </a>
         </div>
 
-        <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-3 sm:gap-4 md:gap-6">
-          {data.images.map((image, index) => (
-            <div
-              key={index}
-              onClick={() => openModal(index)}
-              className="relative cursor-pointer overflow-hidden rounded-lg sm:rounded-xl shadow-md active:shadow-xl transition-all duration-200 active:scale-95 touch-target"
-            >
-              <div className="aspect-square bg-gray-200 flex items-center justify-center">
-                <div className="text-center p-2 sm:p-4">
-                  <div className="text-2xl sm:text-3xl md:text-4xl mb-1 sm:mb-2">🏗️</div>
-                  <p className="text-xs sm:text-sm text-gray-600">{image.alt}</p>
-                </div>
-              </div>
-              <div className="absolute inset-0 bg-black bg-opacity-0 active:bg-opacity-50 transition-all duration-200 flex items-center justify-center">
-                <p className="text-white opacity-0 active:opacity-100 transition-opacity font-semibold text-center px-2 sm:px-4 text-xs sm:text-sm">
-                  {image.caption}
-                </p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Modal */}
-        {selectedImage !== null && (
-          <div
-            className="fixed inset-0 bg-black bg-opacity-95 z-50 flex items-center justify-center p-4"
-            onClick={closeModal}
-          >
-            <div className="relative max-w-4xl w-full">
-              <button
-                onClick={closeModal}
-                className="absolute top-2 right-2 sm:top-4 sm:right-4 text-white active:text-gray-300 z-10 bg-black bg-opacity-70 rounded-full p-2 sm:p-3 touch-target"
-                aria-label="Close"
-              >
-                <X className="w-5 h-5 sm:w-6 sm:h-6" />
-              </button>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation()
-                  prevImage()
-                }}
-                className="absolute left-2 sm:left-4 top-1/2 transform -translate-y-1/2 text-white active:text-gray-300 z-10 bg-black bg-opacity-70 rounded-full p-2 sm:p-3 touch-target"
-                aria-label="Previous"
-              >
-                <ChevronLeft className="w-5 h-5 sm:w-6 sm:h-6" />
-              </button>
-              <button
-                onClick={(e) => {
-                  e.stopPropagation()
-                  nextImage()
-                }}
-                className="absolute right-2 sm:right-4 top-1/2 transform -translate-y-1/2 text-white active:text-gray-300 z-10 bg-black bg-opacity-70 rounded-full p-2 sm:p-3 touch-target"
-                aria-label="Next"
-              >
-                <ChevronRight className="w-5 h-5 sm:w-6 sm:h-6" />
-              </button>
+        {/* Minimal Bento Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {projects.map((project, index) => {
+            const isLarge = project.size === 'large'
+            return (
               <div
-                onClick={(e) => e.stopPropagation()}
-                className="bg-gray-900 rounded-lg p-3 sm:p-4"
+                key={index}
+                className={`group tech-card rounded-2xl p-8 flex flex-col ${
+                  isLarge ? 'md:col-span-2 lg:col-span-2' : ''
+                }`}
               >
-                <div className="aspect-video bg-gray-800 flex items-center justify-center mb-3 sm:mb-4 rounded">
-                  <div className="text-center text-white px-4">
-                    <div className="text-4xl sm:text-5xl md:text-6xl mb-2 sm:mb-4">🏗️</div>
-                    <p className="text-base sm:text-lg md:text-xl">{data.images[selectedImage].caption}</p>
+                {/* Top: Title + Links */}
+                <div className="flex items-start justify-between mb-8">
+                  <h3 className="text-xl sm:text-2xl font-medium text-ink-50 group-hover:text-white transition-colors duration-300 pr-4">
+                    {t(project.titleKey)}
+                  </h3>
+                  <div className="flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {project.github && (
+                      <a href={project.github} target="_blank" rel="noopener noreferrer"
+                         className="p-2 rounded-full bg-base-900 border border-base-light text-ink-200 hover:text-white hover:border-white transition-colors">
+                        <Github className="w-4 h-4" />
+                      </a>
+                    )}
+                    {project.link && (
+                      <a href={project.link} target="_blank" rel="noopener noreferrer"
+                         className="p-2 rounded-full bg-base-900 border border-base-light text-ink-200 hover:text-white hover:border-white transition-colors">
+                        <ExternalLink className="w-4 h-4" />
+                      </a>
+                    )}
                   </div>
                 </div>
-                <p className="text-white text-center text-sm sm:text-base">
-                  {selectedImage + 1} / {data.images.length}
+
+                {/* Description */}
+                <p className="text-sm text-ink-200 leading-relaxed mb-10 flex-grow font-light">
+                  {t(project.descKey)}
                 </p>
+
+                {/* Tags */}
+                <div className="flex flex-wrap gap-2 mt-auto">
+                  {project.tags.map((tag, i) => (
+                    <span key={i} className="px-2.5 py-1 rounded-full border border-base-border bg-base-900/50 text-[10px] font-mono text-ink-300 uppercase tracking-widest">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
               </div>
-            </div>
-          </div>
-        )}
+            )
+          })}
+        </div>
       </div>
     </section>
   )

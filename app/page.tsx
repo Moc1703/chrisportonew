@@ -1,26 +1,28 @@
+'use client'
+
+import { I18nProvider } from '@/lib/i18n'
+import Navigation from '@/components/Navigation'
 import Home from '@/components/sections/Home'
 import About from '@/components/sections/About'
-import Services from '@/components/sections/Services'
-import Gallery from '@/components/sections/Gallery'
+import Experience from '@/components/sections/Services'
+import Projects from '@/components/sections/Gallery'
+import Skills from '@/components/sections/Skills'
 import Contact from '@/components/sections/Contact'
-import Navigation from '@/components/Navigation'
 import Footer from '@/components/Footer'
-import StructuredData from '@/components/StructuredData'
-import { getContentData } from '@/lib/cms'
 
-export default async function HomePage() {
-  const content = await getContentData()
-
+export default function HomePage() {
   return (
-    <main className="min-h-screen">
-      <StructuredData />
-      <Navigation />
-      <Home data={content.home} />
-      <About data={content.about} />
-      <Services data={content.services} />
-      <Gallery data={content.gallery} />
-      <Contact data={content.contact} />
-      <Footer />
-    </main>
+    <I18nProvider>
+      <main className="min-h-screen bg-dark-900">
+        <Navigation />
+        <Home />
+        <About />
+        <Experience />
+        <Projects />
+        <Skills />
+        <Contact />
+        <Footer />
+      </main>
+    </I18nProvider>
   )
 }

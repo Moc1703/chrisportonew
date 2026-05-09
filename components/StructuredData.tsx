@@ -1,68 +1,37 @@
-import { getContentData } from '@/lib/cms'
-
-export default async function StructuredData() {
-  const content = await getContentData()
-
-  const organizationSchema = {
+export default function StructuredData() {
+  const structuredData = {
     '@context': 'https://schema.org',
-    '@type': 'Organization',
-    name: 'Alat Berat Pro',
-    description: content.about.description,
-    url: 'https://www.websiteanda.com',
-    logo: 'https://www.websiteanda.com/logo.png',
-    contactPoint: {
-      '@type': 'ContactPoint',
-      telephone: content.contact.phone,
-      contactType: 'customer service',
-      areaServed: 'ID',
-      availableLanguage: ['Indonesian', 'English'],
-    },
-    sameAs: [
-      // Add your social media links here
-    ],
+    '@type': 'Person',
+    name: 'Christian Immanuel Septianto',
+    jobTitle: 'Full Stack Developer & AI Engineer',
+    url: 'https://chrsm1309.my.id',
+    email: 'christianimm36@gmail.com',
+    telephone: '+6285161682748',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: content.contact.address,
+      addressLocality: 'Bali',
       addressCountry: 'ID',
     },
-  }
-
-  const serviceSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Service',
-    serviceType: 'Konsultan dan Training Alat Berat',
-    provider: {
-      '@type': 'Organization',
-      name: 'Alat Berat Pro',
-    },
-    areaServed: {
-      '@type': 'Country',
-      name: 'Indonesia',
-    },
-    hasOfferCatalog: {
-      '@type': 'OfferCatalog',
-      name: 'Layanan Konsultan dan Training Alat Berat',
-      itemListElement: content.services.services.map((service, index) => ({
-        '@type': 'Offer',
-        itemOffered: {
-          '@type': 'Service',
-          name: service.title,
-          description: service.description,
-        },
-      })),
-    },
+    sameAs: [
+      'https://github.com/Moc1703',
+    ],
+    knowsAbout: [
+      'Full Stack Development',
+      'AI-Augmented Development',
+      'SaaS Architecture',
+      'Laravel',
+      'Node.js',
+      'React',
+      'Next.js',
+      'Digital Training',
+      'Creative Production',
+    ],
   }
 
   return (
-    <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
-      />
-    </>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+    />
   )
 }

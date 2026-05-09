@@ -1,58 +1,74 @@
+'use client'
+
+import { ArrowUp, Github, Mail, ExternalLink } from 'lucide-react'
+import { useTranslation } from '@/lib/i18n'
+
 export default function Footer() {
+  const { t } = useTranslation()
   const currentYear = new Date().getFullYear()
 
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' })
+  }
+
   return (
-    <footer className="bg-primary-950 text-white">
-      <div className="container-custom section-padding">
-        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-          <div>
-            <h3 className="text-xl sm:text-2xl font-bold mb-3 sm:mb-4 text-accent-500">
-              Alat Berat Pro
-            </h3>
-            <p className="text-sm sm:text-base text-gray-400">
-              Penyedia jasa konsultan dan training alat berat profesional dengan pengalaman bertahun-tahun.
+    <footer className="bg-base-900 border-t border-base-border">
+      <div className="container-custom py-12 sm:py-16">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8">
+          {/* Left: Brand */}
+          <div className="flex flex-col items-center md:items-start gap-4">
+            <div className="flex items-center gap-3">
+              <div className="w-8 h-8 rounded-full border border-base-light flex items-center justify-center font-sans text-xs font-bold text-ink-50">
+                CI
+              </div>
+              <div className="flex flex-col">
+                <span className="text-sm font-medium text-ink-50 leading-none">Christian Immanuel</span>
+                <span className="text-[9px] font-mono text-ink-300 uppercase tracking-widest mt-1">Portfolio</span>
+              </div>
+            </div>
+            <p className="text-[10px] font-mono text-ink-300 uppercase tracking-widest">
+              &copy; {currentYear} — {t('footer.built_with')}
             </p>
           </div>
-          
-          <div>
-            <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Tautan Cepat</h4>
-            <ul className="space-y-2">
-              <li>
-                <a href="#home" className="text-sm sm:text-base text-gray-400 hover:text-accent-400 transition-colors touch-target inline-block py-1">
-                  Beranda
-                </a>
-              </li>
-              <li>
-                <a href="#about" className="text-sm sm:text-base text-gray-400 hover:text-accent-400 transition-colors touch-target inline-block py-1">
-                  Tentang Kami
-                </a>
-              </li>
-              <li>
-                <a href="#services" className="text-sm sm:text-base text-gray-400 hover:text-accent-400 transition-colors touch-target inline-block py-1">
-                  Layanan
-                </a>
-              </li>
-              <li>
-                <a href="#contact" className="text-sm sm:text-base text-gray-400 hover:text-accent-400 transition-colors touch-target inline-block py-1">
-                  Kontak
-                </a>
-              </li>
-            </ul>
+
+          {/* Right: Social Links & Back to Top */}
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-2">
+              <a
+                href="https://github.com/Moc1703"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full flex items-center justify-center bg-base-800 border border-base-light text-ink-200 hover:text-white hover:border-white transition-colors"
+                aria-label="GitHub"
+              >
+                <Github className="w-4 h-4" />
+              </a>
+              <a
+                href="mailto:christianimm36@gmail.com"
+                className="w-10 h-10 rounded-full flex items-center justify-center bg-base-800 border border-base-light text-ink-200 hover:text-white hover:border-white transition-colors"
+                aria-label="Email"
+              >
+                <Mail className="w-4 h-4" />
+              </a>
+              <a
+                href="https://chrsm1309.my.id"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-10 h-10 rounded-full flex items-center justify-center bg-base-800 border border-base-light text-ink-200 hover:text-white hover:border-white transition-colors"
+                aria-label="Portfolio"
+              >
+                <ExternalLink className="w-4 h-4" />
+              </a>
+            </div>
+
+            <button
+              onClick={scrollToTop}
+              className="w-10 h-10 rounded-full flex items-center justify-center bg-base-800 border border-base-light text-ink-200 hover:text-black hover:bg-white hover:border-white transition-colors ml-2"
+              aria-label="Back to top"
+            >
+              <ArrowUp className="w-4 h-4" />
+            </button>
           </div>
-          
-          <div>
-            <h4 className="text-base sm:text-lg font-semibold mb-3 sm:mb-4">Kontak</h4>
-            <p className="text-sm sm:text-base text-gray-400 mb-2 break-all">
-              Email: info@alatberatpro.com
-            </p>
-            <p className="text-sm sm:text-base text-gray-400 break-all">
-              WhatsApp: +62 812-3456-7890
-            </p>
-          </div>
-        </div>
-        
-        <div className="border-t border-gray-800 mt-6 sm:mt-8 pt-6 sm:pt-8 text-center text-gray-400">
-          <p className="text-xs sm:text-sm">&copy; {currentYear} Alat Berat Pro. All rights reserved.</p>
         </div>
       </div>
     </footer>

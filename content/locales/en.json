@@ -1,0 +1,102 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "experience": "Experience",
+    "projects": "Projects",
+    "skills": "Skills",
+    "contact": "Contact",
+    "cta": "Get in Touch"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "subtitle_1": "Full Stack Developer",
+    "subtitle_2": "AI & Automation Engineer",
+    "subtitle_3": "Creative Specialist",
+    "description": "Full Stack Developer & Creative Specialist with 7+ years at Harcourts Indonesia. Expert in AI-Augmented Development to build SaaS platforms 5x faster. Combining robust Node.js backend architecture with rapid creative execution.",
+    "cta_primary": "View My Work",
+    "cta_secondary": "Download CV",
+    "stat_years": "Years Experience",
+    "stat_trained": "Agents Trained",
+    "stat_faster": "Faster Dev"
+  },
+  "about": {
+    "badge": "About Me",
+    "title": "Building Digital Solutions with Passion & Precision",
+    "description": "I am a Full Stack Developer & Creative Specialist who combines deep technical skills with visual creativity. With 7+ years at Harcourts Indonesia, I have successfully modernized legacy systems into modern Laravel platforms, trained 100+ agents on digital sales strategies, and managed large-scale creative production.",
+    "description_2": "Currently, I am also active as an Independent SaaS Architect, designing WhatsApp automation platforms and influencer database systems. My unique strength lies in Digital Enablement — bridging technology with business needs.",
+    "languages_title": "Languages",
+    "lang_id": "Indonesian — Native Speaker",
+    "lang_en": "English — Professional Proficiency"
+  },
+  "experience": {
+    "badge": "Experience",
+    "title": "My Career Journey",
+    "description": "From frontend development to SaaS architecture, here is my professional journey.",
+    "present": "Present",
+    "akasha_title": "IT Tech Administrator",
+    "akasha_company": "Akasha Yoga Academy",
+    "akasha_desc": "Responsible for automation, AI implementation, and website development on the Wix platform.",
+    "indie_title": "Independent SaaS Architect & Developer",
+    "indie_company": "Remote / Freelance",
+    "indie_desc": "Designing and building independent SaaS platforms focusing on automation and efficiency.",
+    "indie_item_1": "AutoSapa: WhatsApp automation platform (~7,000+ lines of code) with Multi-Session logic and proprietary Risk Scoring to prevent spam.",
+    "indie_item_2": "KOLBL: Lightweight influencer database with SQLite architecture, achieving sub-second search performance.",
+    "indie_item_3": "Roblox Game Dev: Complex interactive game mechanics using Lua, demonstrating advanced algorithmic logic.",
+    "harcourts_title": "Frontend Developer, Graphic Designer & Digital Trainer",
+    "harcourts_company": "Harcourts Indonesia — Tangerang",
+    "harcourts_desc": "Multi-functional role combining web development, creative design, and digital training.",
+    "harcourts_item_1": "Annual Event Management: Led planning and execution of the Annual Corporate Event every year since 2019.",
+    "harcourts_item_2": "Digital Training: Monthly workshops since 2023, successfully mentoring 100+ agents on Digital Sales Strategies.",
+    "harcourts_item_3": "System Modernization: Revamped legacy systems into \"Harcourts One\" (Laravel), delivering an SEO-friendly, mobile-first interface.",
+    "harcourts_item_4": "Development Efficiency: Adopted AI workflows (Cursor) for landing page prototyping, reducing development turnaround by 40%.",
+    "harcourts_item_5": "Creative Production: Managed high-volume asset creation using Canva (Expert) and produced video series (Premiere Pro/CapCut).",
+    "edu_title": "Diploma in Information Systems",
+    "edu_company": "Bina Sarana Informatika (BSI)",
+    "edu_desc": "GPA: 3.14 — Graduated 2023.",
+    "award_title": "1st Place — National Science Olympiad (OSN)",
+    "award_desc": "School Level | Senior High School (Grade 1-2). Demonstrated strong analytical and problem-solving abilities."
+  },
+  "projects": {
+    "badge": "Projects",
+    "title": "Selected Works",
+    "description": "Projects I've built, from SaaS platforms to game development.",
+    "view_project": "View Project",
+    "view_github": "GitHub",
+    "autosapa_title": "AutoSapa",
+    "autosapa_desc": "A WhatsApp automation SaaS platform with ~7,000+ lines of code. Features Multi-Session support, proprietary Risk Scoring for spam prevention, and scalable architecture.",
+    "kolbl_title": "KOLBL",
+    "kolbl_desc": "A lightweight influencer database with SQLite architecture achieving sub-second search performance for rapid data verification.",
+    "harcourts_one_title": "Harcourts One",
+    "harcourts_one_desc": "A modern real-time property management platform, replacing a legacy WordPress system with an SEO-friendly, mobile-first Laravel interface.",
+    "roblox_title": "Roblox Game Dev",
+    "roblox_desc": "Complex interactive game mechanics built with Lua, demonstrating advanced algorithmic logic beyond standard web applications.",
+    "akasha_title": "Akasha Yoga Academy",
+    "akasha_desc": "Website development and automation systems for a yoga academy, including AI implementation and Wix platform integration."
+  },
+  "skills": {
+    "badge": "Skills",
+    "title": "Tech Stack & Competencies",
+    "description": "A unique combination of technical skills, AI automation, and creative production.",
+    "cat_dev": "Development",
+    "cat_ai": "AI & Automation",
+    "cat_creative": "Creative",
+    "cat_leadership": "Leadership"
+  },
+  "contact": {
+    "badge": "Contact",
+    "title": "Let's Collaborate",
+    "description": "Interested in working together? I'm always open to new projects, creative ideas, or opportunities to be part of your vision.",
+    "email_label": "Email",
+    "phone_label": "Phone",
+    "location_label": "Location",
+    "location_value": "Bali, Indonesia",
+    "portfolio_label": "Portfolio",
+    "cta_whatsapp": "Chat on WhatsApp",
+    "cta_email": "Send Email"
+  },
+  "footer": {
+    "built_with": "Built with Next.js & ☕",
+    "rights": "All rights reserved."
+  }
+}
