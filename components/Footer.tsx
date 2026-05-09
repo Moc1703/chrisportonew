@@ -12,17 +12,17 @@ export default function Footer() {
   }
 
   return (
-    <footer className="bg-base-900 border-t border-base-border">
+    <footer className="bg-black border-t border-base-light">
       <div className="container-custom py-12 sm:py-16">
         <div className="flex flex-col md:flex-row items-center justify-between gap-8">
           {/* Left: Brand */}
           <div className="flex flex-col items-center md:items-start gap-4">
             <div className="flex items-center gap-3">
-              <div className="w-8 h-8 rounded-full border border-base-light flex items-center justify-center font-sans text-xs font-bold text-ink-50">
+              <div className="w-8 h-8 rounded-none border border-base-light flex items-center justify-center font-serif text-xs font-bold text-ink-50">
                 CI
               </div>
               <div className="flex flex-col">
-                <span className="text-sm font-medium text-ink-50 leading-none">Christian Immanuel</span>
+                <span className="text-sm font-serif text-ink-50 leading-none">Christian Immanuel</span>
                 <span className="text-[9px] font-mono text-ink-300 uppercase tracking-widest mt-1">Portfolio</span>
               </div>
             </div>
@@ -38,14 +38,14 @@ export default function Footer() {
                 href="https://github.com/Moc1703"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full flex items-center justify-center bg-base-800 border border-base-light text-ink-200 hover:text-white hover:border-white transition-colors"
+                className="w-10 h-10 rounded-none flex items-center justify-center bg-black border border-base-light text-ink-200 hover:bg-white hover:text-black transition-colors"
                 aria-label="GitHub"
               >
                 <Github className="w-4 h-4" />
               </a>
               <a
                 href="mailto:christianimm36@gmail.com"
-                className="w-10 h-10 rounded-full flex items-center justify-center bg-base-800 border border-base-light text-ink-200 hover:text-white hover:border-white transition-colors"
+                className="w-10 h-10 rounded-none flex items-center justify-center bg-black border border-base-light text-ink-200 hover:bg-white hover:text-black transition-colors"
                 aria-label="Email"
               >
                 <Mail className="w-4 h-4" />
@@ -54,7 +54,7 @@ export default function Footer() {
                 href="https://chrsm1309.my.id"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 rounded-full flex items-center justify-center bg-base-800 border border-base-light text-ink-200 hover:text-white hover:border-white transition-colors"
+                className="w-10 h-10 rounded-none flex items-center justify-center bg-black border border-base-light text-ink-200 hover:bg-white hover:text-black transition-colors"
                 aria-label="Portfolio"
               >
                 <ExternalLink className="w-4 h-4" />
@@ -63,7 +63,7 @@ export default function Footer() {
 
             <button
               onClick={scrollToTop}
-              className="w-10 h-10 rounded-full flex items-center justify-center bg-base-800 border border-base-light text-ink-200 hover:text-black hover:bg-white hover:border-white transition-colors ml-2"
+              className="w-10 h-10 rounded-none flex items-center justify-center bg-black border border-base-light text-ink-200 hover:text-black hover:bg-white transition-colors ml-2"
               aria-label="Back to top"
             >
               <ArrowUp className="w-4 h-4" />

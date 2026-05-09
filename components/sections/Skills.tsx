@@ -1,6 +1,7 @@
 'use client'
 
 import { useTranslation } from '@/lib/i18n'
+import ScrollReveal from '../ScrollReveal'
 
 interface Skill {
   name: string
@@ -62,7 +63,7 @@ function SkillLevel({ level }: { level: number }) {
       {[1, 2, 3, 4, 5].map((i) => (
         <div
           key={i}
-          className={`w-3 h-1 rounded-full transition-colors duration-300 ${
+          className={`w-4 h-1 transition-colors duration-300 ${
             i <= level
               ? 'bg-white'
               : 'bg-base-700'
@@ -79,37 +80,40 @@ export default function Skills() {
   return (
     <section id="skills" className="section-padding border-t border-base-border relative">
       <div className="container-custom">
-        {/* Header */}
-        <div className="mb-16 md:mb-20">
-          <span className="tech-badge mb-4">
-            {t('skills.badge')}
-          </span>
-          <h2 className="section-title mb-4">{t('skills.title')}</h2>
-          <p className="section-description">{t('skills.description')}</p>
-        </div>
+        <ScrollReveal>
+          {/* Header */}
+          <div className="mb-16 md:mb-20">
+            <span className="tech-badge mb-4">
+              {t('skills.badge')}
+            </span>
+            <h2 className="section-title mb-4">{t('skills.title')}</h2>
+            <p className="section-description">{t('skills.description')}</p>
+          </div>
+        </ScrollReveal>
 
         {/* Skills Grid - Minimalist */}
         <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
           {skillCategories.map((category, index) => (
-            <div
-              key={index}
-              className="tech-card p-8 rounded-2xl"
-            >
-              <h3 className="text-lg font-medium text-ink-50 mb-8 flex items-center gap-3">
-                <span className="w-2 h-2 rounded-full bg-white"></span>
-                {t(category.titleKey)}
-              </h3>
-              <div className="space-y-6">
-                {category.skills.map((skill, i) => (
-                  <div key={i} className="flex items-center justify-between group">
-                    <span className="text-sm font-sans text-ink-100 group-hover:text-white transition-colors">
-                      {skill.name}
-                    </span>
-                    <SkillLevel level={skill.level} />
-                  </div>
-                ))}
+            <ScrollReveal key={index} delay={index * 100}>
+              <div
+                className="bg-black border border-base-light p-8"
+              >
+                <h3 className="text-xl font-serif text-ink-50 mb-8 flex items-center gap-3">
+                  <span className="w-1.5 h-1.5 bg-white"></span>
+                  {t(category.titleKey)}
+                </h3>
+                <div className="space-y-6">
+                  {category.skills.map((skill, i) => (
+                    <div key={i} className="flex items-center justify-between group">
+                      <span className="text-sm font-sans text-ink-100 group-hover:text-white transition-colors">
+                        {skill.name}
+                      </span>
+                      <SkillLevel level={skill.level} />
+                    </div>
+                  ))}
+                </div>
               </div>
-            </div>
+            </ScrollReveal>
           ))}
         </div>
       </div>

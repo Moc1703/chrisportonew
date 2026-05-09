@@ -17,7 +17,7 @@ export default function Home() {
         <div className="max-w-4xl">
           
           {/* Status Indicator */}
-          <div className="inline-flex items-center gap-2 mb-12 px-3 py-1.5 rounded-full bg-base-800/50 border border-base-border backdrop-blur-md">
+          <div className="inline-flex items-center gap-2 mb-12 px-3 py-1.5 rounded-full bg-base-900 border border-base-light animate-fade-in-up">
             <div className="w-1.5 h-1.5 bg-white rounded-full animate-pulse-slow"></div>
             <span className="text-ink-200 font-mono text-[10px] tracking-widest uppercase">
               {t('hero.greeting')}
@@ -25,13 +25,13 @@ export default function Home() {
           </div>
 
           {/* Typography */}
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-sans font-medium text-ink-50 leading-[1.05] tracking-tight mb-8">
+          <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-serif text-ink-50 leading-[1.05] tracking-tight mb-8 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
             <span className="block text-ink-200">Christian</span>
             <span className="block">Immanuel.</span>
           </h1>
 
           {/* Roles */}
-          <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 font-mono text-ink-300 uppercase tracking-widest text-[10px] sm:text-xs mb-10">
+          <div className="flex flex-col sm:flex-row sm:items-center gap-3 sm:gap-6 font-mono text-ink-300 uppercase tracking-widest text-[10px] sm:text-xs mb-10 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
             <span>{t('hero.subtitle_1')}</span>
             <span className="hidden sm:block w-1 h-1 bg-base-light rounded-full"></span>
             <span>{t('hero.subtitle_2')}</span>
@@ -39,15 +39,15 @@ export default function Home() {
             <span>{t('hero.subtitle_3')}</span>
           </div>
 
-          <p className="text-base sm:text-lg text-ink-200 leading-relaxed max-w-2xl mb-12 font-light">
+          <p className="text-base sm:text-lg text-ink-200 leading-relaxed max-w-2xl mb-12 font-light animate-fade-in-up" style={{ animationDelay: '250ms' }}>
             {t('hero.description')}
           </p>
 
           {/* CTAs */}
-          <div className="flex flex-col sm:flex-row gap-4 mb-20">
+          <div className="flex flex-col sm:flex-row gap-4 mb-20 animate-fade-in-up" style={{ animationDelay: '300ms' }}>
             <button
               onClick={() => scrollToSection('projects')}
-              className="group px-6 py-3.5 bg-white text-black font-sans font-medium text-sm rounded-full hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
+              className="group px-6 py-3.5 bg-white text-black font-sans font-medium text-sm rounded-full hover:bg-ink-100 transition-colors flex items-center justify-center gap-3"
             >
               {t('hero.cta_primary')}
               <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
@@ -56,7 +56,7 @@ export default function Home() {
               href="https://github.com/Moc1703"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-6 py-3.5 bg-base-800/50 text-ink-50 font-sans font-medium text-sm rounded-full border border-base-border hover:bg-base-800 backdrop-blur-md hover:scale-105 transition-all duration-300 flex items-center justify-center gap-3"
+              className="px-6 py-3.5 bg-base-900 text-ink-50 font-sans font-medium text-sm rounded-full border border-base-light hover:border-white transition-colors flex items-center justify-center gap-3"
             >
               <Github className="w-4 h-4" />
               GitHub
@@ -64,17 +64,17 @@ export default function Home() {
           </div>
 
           {/* Stats Strip */}
-          <div className="flex flex-wrap gap-8 sm:gap-16 pt-8 border-t border-base-border">
+          <div className="flex flex-wrap gap-8 sm:gap-16 pt-8 border-t border-base-light animate-fade-in-up" style={{ animationDelay: '400ms' }}>
             <div className="group">
-              <div className="text-3xl font-sans text-ink-50 mb-1 group-hover:text-white transition-colors">{t('hero.stat_years').split(' ')[0] === 'Tahun' ? '7+' : '7+'}</div>
+              <div className="text-3xl font-serif text-ink-50 mb-1 group-hover:text-white transition-colors">{t('hero.stat_years').split(' ')[0] === 'Tahun' ? '7+' : '7+'}</div>
               <div className="text-[10px] font-mono text-ink-300 uppercase tracking-widest">{t('hero.stat_years')}</div>
             </div>
             <div className="group">
-              <div className="text-3xl font-sans text-ink-50 mb-1 group-hover:text-white transition-colors">100+</div>
+              <div className="text-3xl font-serif text-ink-50 mb-1 group-hover:text-white transition-colors">100+</div>
               <div className="text-[10px] font-mono text-ink-300 uppercase tracking-widest">{t('hero.stat_trained')}</div>
             </div>
             <div className="group">
-              <div className="text-3xl font-sans text-ink-50 mb-1 group-hover:text-white transition-colors">5x</div>
+              <div className="text-3xl font-serif text-ink-50 mb-1 group-hover:text-white transition-colors">5x</div>
               <div className="text-[10px] font-mono text-ink-300 uppercase tracking-widest">{t('hero.stat_faster')}</div>
             </div>
           </div>

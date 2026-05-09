@@ -57,7 +57,7 @@ export default function Navigation() {
           <div className="flex items-center justify-between h-14">
             {/* Logo */}
             <button onClick={() => scrollToSection('home')} className="flex items-center gap-3 group">
-              <div className="w-8 h-8 bg-white text-black flex items-center justify-center font-sans text-sm font-bold rounded-full group-hover:scale-105 transition-transform duration-300">
+              <div className="w-8 h-8 bg-white text-black flex items-center justify-center font-serif text-sm font-bold rounded-none group-hover:bg-ink-100 transition-colors duration-300">
                 CI
               </div>
               <div className="flex flex-col text-left">
@@ -81,7 +81,7 @@ export default function Navigation() {
                 <LanguageSwitcher />
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="px-5 py-2 bg-white text-black text-xs font-mono font-bold uppercase tracking-widest rounded-full hover:bg-ink-100 hover:scale-105 transition-all duration-300"
+                  className="px-5 py-2 bg-white text-black text-xs font-mono font-bold uppercase tracking-widest rounded-none hover:bg-black hover:text-white border border-transparent hover:border-white transition-all duration-300"
                 >
                   {t('nav.cta')}
                 </button>
@@ -121,7 +121,7 @@ export default function Navigation() {
             <div className="pt-8">
               <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full py-4 bg-white text-black font-mono font-bold uppercase tracking-widest rounded-lg hover:bg-ink-100 transition-colors"
+                className="w-full py-4 bg-white text-black font-mono font-bold uppercase tracking-widest rounded-none hover:bg-black hover:text-white border border-transparent hover:border-white transition-colors"
               >
                 {t('nav.cta')}
               </button>

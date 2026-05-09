@@ -2,6 +2,7 @@
 
 import { Mail, Phone, MapPin, ExternalLink, ArrowRight, Github } from 'lucide-react'
 import { useTranslation } from '@/lib/i18n'
+import ScrollReveal from '../ScrollReveal'
 
 export default function Contact() {
   const { t } = useTranslation()
@@ -45,48 +46,52 @@ export default function Contact() {
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
           
           {/* Left: Text & CTA */}
-          <div>
-            <span className="tech-badge mb-4">
-              {t('contact.badge')}
-            </span>
-            <h2 className="section-title mb-6">{t('contact.title')}</h2>
-            <p className="text-lg font-light text-ink-200 mb-12 leading-relaxed max-w-lg">
-              {t('contact.description')}
-            </p>
+          <ScrollReveal>
+            <div>
+              <span className="tech-badge mb-4">
+                {t('contact.badge')}
+              </span>
+              <h2 className="section-title mb-6">{t('contact.title')}</h2>
+              <p className="text-lg font-light text-ink-200 mb-12 leading-relaxed max-w-lg">
+                {t('contact.description')}
+              </p>
 
-            <div className="flex flex-col sm:flex-row gap-4">
-              <button
-                onClick={handleWhatsAppClick}
-                className="group px-6 py-3.5 bg-white text-black font-sans font-medium text-sm rounded-full hover:bg-ink-100 transition-colors flex items-center justify-center gap-3"
-              >
-                WhatsApp
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </button>
-              
-              <a
-                href="mailto:christianimm36@gmail.com"
-                className="group px-6 py-3.5 bg-base-900 border border-base-light text-ink-50 font-sans font-medium text-sm rounded-full hover:border-white transition-colors flex items-center justify-center gap-3"
-              >
-                Email
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </a>
+              <div className="flex flex-col sm:flex-row gap-4">
+                <button
+                  onClick={handleWhatsAppClick}
+                  className="group px-6 py-3.5 bg-white text-black font-sans font-medium text-sm rounded-none hover:bg-ink-100 transition-colors flex items-center justify-center gap-3"
+                >
+                  WhatsApp
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+                
+                <a
+                  href="mailto:christianimm36@gmail.com"
+                  className="group px-6 py-3.5 bg-black border border-base-light text-ink-50 font-sans font-medium text-sm rounded-none hover:bg-white hover:text-black transition-colors flex items-center justify-center gap-3"
+                >
+                  Email
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </a>
+              </div>
             </div>
-          </div>
+          </ScrollReveal>
 
           {/* Right: Contact Details Grid */}
           <div className="grid sm:grid-cols-2 gap-6">
             {contactItems.map((item, index) => {
               const Icon = item.icon
               const content = (
-                <div className="tech-card p-6 h-full rounded-2xl group flex flex-col justify-between">
-                  <div className="w-10 h-10 rounded-full bg-base-900 border border-base-border flex items-center justify-center mb-8 group-hover:border-white group-hover:text-white transition-colors duration-300">
-                    <Icon className="w-4 h-4 text-ink-200 group-hover:text-white transition-colors" />
+                <ScrollReveal key={index} delay={index * 100}>
+                  <div className="bg-black border border-base-light p-6 h-full rounded-none group flex flex-col justify-between hover:bg-white hover:border-white transition-colors duration-500">
+                    <div className="w-10 h-10 rounded-none bg-black border border-base-light flex items-center justify-center mb-8 group-hover:border-black group-hover:bg-white transition-colors duration-500">
+                      <Icon className="w-4 h-4 text-ink-200 group-hover:text-black transition-colors" />
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-mono text-ink-300 group-hover:text-black uppercase tracking-widest mb-1.5 transition-colors duration-500">{item.label}</p>
+                      <p className="text-sm text-ink-50 group-hover:text-black font-medium break-all transition-colors duration-500">{item.value}</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-[10px] font-mono text-ink-300 uppercase tracking-widest mb-1.5">{item.label}</p>
-                    <p className="text-sm text-ink-50 font-medium break-all">{item.value}</p>
-                  </div>
-                </div>
+                </ScrollReveal>
               )
 
               return item.href ? (

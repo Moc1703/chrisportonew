@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono, Playfair_Display } from 'next/font/google'
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'], variable: '--font-sans' })
 const jetbrains = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' })
+const playfair = Playfair_Display({ subsets: ['latin'], variable: '--font-serif' })
 
 export const viewport: Viewport = {
   width: 'device-width',
@@ -44,7 +45,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="id" className={`${inter.variable} ${jetbrains.variable}`}>
+    <html lang="id" className={`${inter.variable} ${jetbrains.variable} ${playfair.variable}`}>
       <head>
         <link rel="icon" href="/favicon.ico" />
       </head>

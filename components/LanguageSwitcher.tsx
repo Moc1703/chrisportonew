@@ -25,7 +25,7 @@ export default function LanguageSwitcher() {
     <div className="relative" ref={dropdownRef}>
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="flex items-center gap-2 px-3 py-2 bg-base-800 brut`  al-border hover:border-brand transition-colors duration-300 text-sm"
+        className="flex items-center gap-2 px-3 py-2 bg-black border border-base-light hover:border-white transition-colors duration-300 text-sm"
         aria-label="Change language"
       >
         <span className="text-base">{localeFlags[locale]}</span>
@@ -34,7 +34,7 @@ export default function LanguageSwitcher() {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 top-full mt-2 w-44 bg-base-800 brutal-border z-50 animate-fade-in-up">
+        <div className="absolute right-0 top-full mt-2 w-44 bg-black border border-base-light z-50 animate-fade-in-up">
           <div className="flex flex-col divide-y divide-base-border">
             {localeList.map((loc) => (
               <button
@@ -44,14 +44,14 @@ export default function LanguageSwitcher() {
                   setIsOpen(false)
                 }}
                 className={`w-full flex items-center gap-3 px-4 py-3 text-sm transition-colors duration-200 ${locale === loc
-                  ? 'bg-brand/10 text-brand font-medium'
-                  : 'text-ink-200 hover:bg-base-700 hover:text-ink-50'
+                  ? 'bg-white text-black font-medium'
+                  : 'text-ink-200 hover:bg-white hover:text-black'
                   }`}
               >
                 <span className="text-base">{localeFlags[loc]}</span>
                 <span className="font-sans">{localeNames[loc]}</span>
                 {locale === loc && (
-                  <span className="ml-auto w-1.5 h-1.5 bg-brand"></span>
+                  <span className="ml-auto w-1.5 h-1.5 bg-black"></span>
                 )}
               </button>
             ))}
