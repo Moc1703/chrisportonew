@@ -14,14 +14,14 @@ interface TimelineItem {
 
 const timeline: TimelineItem[] = [
   {
-    year: '2026',
+    year: '2026 - Present',
     titleKey: 'experience.akasha_title',
     companyKey: 'experience.akasha_company',
     descKey: 'experience.akasha_desc',
     tags: ['Wix', 'AI', 'Automation'],
   },
   {
-    year: '2023',
+    year: '2023 - Present',
     titleKey: 'experience.indie_title',
     companyKey: 'experience.indie_company',
     descKey: 'experience.indie_desc',
@@ -29,7 +29,7 @@ const timeline: TimelineItem[] = [
     tags: ['Node.js', 'SQLite', 'Lua', 'SaaS'],
   },
   {
-    year: '2018',
+    year: '2018 - 2026',
     titleKey: 'experience.harcourts_title',
     companyKey: 'experience.harcourts_company',
     descKey: 'experience.harcourts_desc',
@@ -43,13 +43,13 @@ const timeline: TimelineItem[] = [
     tags: ['Laravel', 'Canva', 'Premiere Pro', 'AI Workflow'],
   },
   {
-    year: '2023',
+    year: '2020 - 2023',
     titleKey: 'experience.edu_title',
     companyKey: 'experience.edu_company',
     descKey: 'experience.edu_desc',
   },
   {
-    year: 'SMA',
+    year: '2016 - 2018',
     titleKey: 'experience.award_title',
     companyKey: '',
     descKey: 'experience.award_desc',

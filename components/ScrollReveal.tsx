@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useRef, ReactNode } from 'react'
+import { motion } from 'framer-motion'
+import { ReactNode } from 'react'
 
 interface ScrollRevealProps {
   children: ReactNode
@@ -8,34 +9,18 @@ interface ScrollRevealProps {
 }
 
 export default function ScrollReveal({ children, delay = 0 }: ScrollRevealProps) {
-  const ref = useRef<HTMLDivElement>(null)
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setTimeout(() => {
-              entry.target.classList.add('animate-fade-in-up')
-              entry.target.classList.remove('opacity-0')
-            }, delay)
-            observer.unobserve(entry.target)
-          }
-        })
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
-    )
-
-    if (ref.current) {
-      observer.observe(ref.current)
-    }
-
-    return () => observer.disconnect()
-  }, [delay])
-
   return (
-    <div ref={ref} className="opacity-0">
+    <motion.div
+      initial={{ opacity: 0, filter: 'blur(8px)', y: 24 }}
+      whileInView={{ opacity: 1, filter: 'blur(0px)', y: 0 }}
+      viewport={{ once: true, margin: '-50px' }}
+      transition={{
+        duration: 0.8,
+        delay: delay / 1000,
+        ease: [0.16, 1, 0.3, 1],
+      }}
+    >
       {children}
-    </div>
+    </motion.div>
   )
 }

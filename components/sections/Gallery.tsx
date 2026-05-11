@@ -1,7 +1,7 @@
 'use client'
 
 import { useTranslation } from '@/lib/i18n'
-import { ExternalLink, Github, ArrowRight } from 'lucide-react'
+import { ExternalLink, Github, ArrowRight, MessageSquare, Database, Building, Gamepad2, Leaf } from 'lucide-react'
 import ScrollReveal from '../ScrollReveal'
 
 interface Project {
@@ -11,6 +11,8 @@ interface Project {
   size: 'large' | 'medium' | 'small'
   github?: string
   link?: string
+  icon?: React.ElementType
+  logoUrl?: string
 }
 
 const projects: Project[] = [
@@ -20,6 +22,7 @@ const projects: Project[] = [
     tags: ['Node.js', 'Express', 'WhatsApp API', 'Risk Scoring'],
     size: 'large',
     github: 'https://github.com/Moc1703',
+    icon: MessageSquare,
   },
   {
     titleKey: 'projects.kolbl_title',
@@ -27,24 +30,32 @@ const projects: Project[] = [
     tags: ['SQLite', 'Node.js', 'REST API'],
     size: 'medium',
     github: 'https://github.com/Moc1703',
+    link: 'https://kolbl.vercel.app',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=kolbl.vercel.app&sz=128',
   },
   {
     titleKey: 'projects.harcourts_one_title',
     descKey: 'projects.harcourts_one_desc',
     tags: ['Laravel', 'PHP', 'MySQL', 'SEO'],
     size: 'medium',
+    link: 'https://harcourts.co.id',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=harcourts.co.id&sz=128',
   },
   {
     titleKey: 'projects.roblox_title',
     descKey: 'projects.roblox_desc',
     tags: ['Lua', 'Game Logic', 'Roblox Studio'],
     size: 'small',
+    link: 'https://www.roblox.com/games/80611911910659/Gunung-Bongkok',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=roblox.com&sz=128',
   },
   {
     titleKey: 'projects.akasha_title',
     descKey: 'projects.akasha_desc',
     tags: ['Wix', 'AI', 'n8n', 'Automation'],
     size: 'small',
+    link: 'https://akashayogaacademy.com',
+    logoUrl: 'https://www.google.com/s2/favicons?domain=akashayogaacademy.com&sz=128',
   },
 ]
 
@@ -76,33 +87,54 @@ export default function Projects() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => {
             const isLarge = project.size === 'large'
+            const Icon = project.icon
             return (
               <ScrollReveal key={index} delay={index * 100}>
                 <div
-                  className={`group bg-black border border-base-light hover:bg-white hover:border-white transition-colors duration-500 rounded-none p-8 flex flex-col h-full ${
+                  onClick={() => (project.link || project.github) && window.open(project.link || project.github, '_blank')}
+                  className={`group bg-black border border-base-light hover:bg-white hover:border-white transition-colors duration-500 rounded-none p-8 flex flex-col h-full ${(project.link || project.github) ? 'cursor-pointer' : ''} ${
                     isLarge ? 'md:col-span-2 lg:col-span-2' : ''
                   }`}
                 >
-                  {/* Top: Title + Links */}
-                  <div className="flex items-start justify-between mb-8">
-                    <h3 className="text-xl sm:text-2xl font-serif text-ink-50 group-hover:text-black transition-colors duration-300 pr-4">
-                      {t(project.titleKey)}
-                    </h3>
+                  {/* Top: Logo + Links */}
+                  <div className="flex items-start justify-between mb-6">
+                    {project.logoUrl ? (
+                      <div className="w-12 h-12 flex items-center justify-center bg-base-900 border border-base-light group-hover:bg-white group-hover:border-white transition-colors duration-500 overflow-hidden">
+                        <img 
+                          src={project.logoUrl} 
+                          alt="Project Logo"
+                          className="w-6 h-6 object-contain grayscale opacity-60 group-hover:opacity-100 group-hover:grayscale-0 transition-all duration-500" 
+                        />
+                      </div>
+                    ) : Icon ? (
+                      <div className="w-12 h-12 flex items-center justify-center bg-base-900 border border-base-light group-hover:bg-black group-hover:border-black transition-colors duration-500 text-ink-100 group-hover:text-white">
+                        <Icon className="w-5 h-5" />
+                      </div>
+                    ) : (
+                      <div className="w-12 h-12"></div>
+                    )}
                     <div className="flex items-center gap-3 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                       {project.github && (
                         <a href={project.github} target="_blank" rel="noopener noreferrer"
+                           onClick={(e) => e.stopPropagation()}
                            className="p-2 border border-black text-black hover:bg-black hover:text-white transition-colors">
                           <Github className="w-4 h-4" />
                         </a>
                       )}
                       {project.link && (
                         <a href={project.link} target="_blank" rel="noopener noreferrer"
+                           onClick={(e) => e.stopPropagation()}
                            className="p-2 border border-black text-black hover:bg-black hover:text-white transition-colors">
                           <ExternalLink className="w-4 h-4" />
                         </a>
                       )}
                     </div>
                   </div>
+
+                  {/* Title */}
+                  <h3 className="text-xl sm:text-2xl font-serif text-ink-50 group-hover:text-black transition-colors duration-300 mb-4">
+                    {t(project.titleKey)}
+                  </h3>
 
                   {/* Description */}
                   <p className="text-sm text-ink-200 group-hover:text-black leading-relaxed mb-10 flex-grow font-light transition-colors duration-300">
