@@ -1,7 +1,7 @@
 'use client'
 
 import { useTranslation } from '@/lib/i18n'
-import { ExternalLink, Github, ArrowRight, MessageSquare, Database, Building, Gamepad2, Leaf } from 'lucide-react'
+import { ExternalLink, Github, ArrowRight, MessageSquare, Database, Building, Gamepad2, Leaf, ShoppingCart } from 'lucide-react'
 import ScrollReveal from '../ScrollReveal'
 
 interface Project {
@@ -23,6 +23,14 @@ const projects: Project[] = [
     size: 'large',
     github: 'https://github.com/Moc1703',
     icon: MessageSquare,
+  },
+  {
+    titleKey: 'projects.ecommerce_title',
+    descKey: 'projects.ecommerce_desc',
+    tags: ['Next.js', 'E-Commerce', 'B2B', 'Cart System'],
+    size: 'medium',
+    link: 'https://chrsm1309.my.id/porto/ecommerce/',
+    icon: ShoppingCart,
   },
   {
     titleKey: 'projects.kolbl_title',

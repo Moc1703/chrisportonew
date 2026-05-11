@@ -65,6 +65,8 @@
     "view_github": "GitHub",
     "autosapa_title": "AutoSapa",
     "autosapa_desc": "WhatsApp自动化SaaS平台，约7,000+行代码。支持多会话、专有风险评分垃圾信息防护和可扩展架构。",
+    "ecommerce_title": "B2B 电子商务平台",
+    "ecommerce_desc": "一个现代化的 B2B 电子商务平台，具有批发管理、深度产品分类、交互式购物车和多分支机构集成功能。",
     "kolbl_title": "KOLBL",
     "kolbl_desc": "轻量级网红数据库，采用SQLite架构实现亚秒级搜索性能，用于快速数据验证。",
     "harcourts_one_title": "Harcourts One",

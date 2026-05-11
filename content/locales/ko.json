@@ -65,6 +65,8 @@
     "view_github": "GitHub",
     "autosapa_title": "AutoSapa",
     "autosapa_desc": "약 7,000줄 이상의 코드를 가진 WhatsApp 자동화 SaaS 플랫폼. 멀티세션 지원, 스팸 방지를 위한 독자적 리스크 스코어링, 확장 가능한 아키텍처.",
+    "ecommerce_title": "B2B 전자상거래 플랫폼",
+    "ecommerce_desc": "도매 관리, 심층적인 제품 분류, 대화형 장바구니 및 다중 지점 통합을 특징으로 하는 최신 B2B 전자상거래 플랫폼입니다.",
     "kolbl_title": "KOLBL",
     "kolbl_desc": "SQLite 아키텍처를 사용한 경량 인플루언서 데이터베이스, 빠른 데이터 검증을 위한 1초 미만의 검색 성능.",
     "harcourts_one_title": "Harcourts One",
