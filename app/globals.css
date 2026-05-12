@@ -3,80 +3,167 @@
 @tailwind utilities;
 
 @layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
   body {
-    @apply bg-base-900 text-ink-100 font-sans antialiased overflow-x-hidden selection:bg-white selection:text-black;
+    @apply bg-base-900 text-ink-100 font-sans antialiased overflow-x-hidden;
+    font-feature-settings: 'ss01', 'cv11', 'kern';
+    text-rendering: optimizeLegibility;
   }
 
   ::selection {
-    @apply bg-white text-black;
+    @apply bg-accent text-base-900;
   }
 
-  /* Sleek Scrollbar */
+  /* Thin editorial scrollbar */
   ::-webkit-scrollbar {
-    width: 4px;
+    width: 3px;
+    height: 3px;
   }
   ::-webkit-scrollbar-track {
     @apply bg-base-900;
   }
   ::-webkit-scrollbar-thumb {
-    @apply bg-base-light rounded-full;
+    @apply bg-base-light;
   }
   ::-webkit-scrollbar-thumb:hover {
     @apply bg-ink-300;
   }
+
+  /* Reduced motion respect */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
 }
 
 @layer components {
+  /* Layout */
   .container-custom {
-    @apply max-w-7xl mx-auto px-6 sm:px-8 lg:px-12;
-  }
-
-  /* Sleek Cards & Borders */
-  .tech-border {
-    @apply border border-base-border;
-  }
-
-  .tech-card {
-    @apply bg-base-800/30 border border-base-border backdrop-blur-xl transition-all duration-500;
-  }
-
-  .tech-card:hover {
-    @apply bg-base-800/80 border-base-light;
-  }
-
-  .tech-badge {
-    @apply inline-flex items-center gap-2 px-2.5 py-1 text-[10px] font-mono uppercase tracking-widest border border-base-border text-ink-200 bg-base-800/50 backdrop-blur-md;
+    @apply max-w-[1240px] mx-auto px-6 sm:px-10 lg:px-16;
   }
 
   .section-padding {
-    @apply py-24 sm:py-32;
+    @apply py-28 sm:py-36 lg:py-44;
+  }
+
+  /* Editorial typography */
+  .eyebrow {
+    @apply inline-flex items-center gap-2 text-[11px] font-mono uppercase tracking-[0.22em] text-ink-300;
+  }
+
+  .section-index {
+    @apply font-mono text-[11px] uppercase tracking-[0.22em] text-ink-300;
+  }
+
+  .display-hero {
+    @apply font-serif text-ink-50;
+    font-size: clamp(3.5rem, 10vw, 8rem);
+    line-height: 0.98;
+    letter-spacing: -0.04em;
+    font-weight: 400;
+  }
+
+  .display-section {
+    @apply font-serif text-ink-50;
+    font-size: clamp(3rem, 7vw, 5rem);
+    line-height: 1.02;
+    letter-spacing: -0.035em;
+    font-weight: 400;
   }
 
   .section-title {
-    @apply font-serif text-4xl sm:text-5xl md:text-6xl text-ink-50 leading-[1.1] mb-6 tracking-tight;
+    @apply font-serif text-4xl sm:text-5xl md:text-6xl text-ink-50 leading-[1.02] tracking-display;
+    font-weight: 400;
   }
 
   .section-description {
-    @apply text-base sm:text-lg text-ink-200 max-w-2xl font-light leading-relaxed;
+    @apply text-base sm:text-lg text-ink-200 max-w-2xl font-light leading-[1.7];
   }
 
-  .animate-fade-in-up {
-    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  .lead {
+    @apply text-lg md:text-xl text-ink-100 font-light leading-[1.55];
+  }
+
+  .muted {
+    @apply text-ink-300;
+  }
+
+  /* Italic serif for editorial accent — use sparingly, hero only */
+  .accent-italic {
+    @apply font-serif italic text-accent;
+    font-weight: 400;
+  }
+
+  /* Hairline divider */
+  .rule {
+    @apply h-px w-full bg-base-border;
+  }
+
+  /* Buttons — add `group` on the element in JSX when using group-hover children */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2.5 px-6 py-3 bg-ink-50 text-base-900 text-sm font-medium rounded-full hover:bg-brand-hover transition-colors;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2.5 px-6 py-3 text-sm font-medium text-ink-100 border border-base-light rounded-full hover:border-ink-200 hover:text-ink-50 transition-colors;
+  }
+
+  .btn-icon {
+    @apply inline-flex items-center justify-center w-11 h-11 rounded-full border border-base-light text-ink-200 hover:border-ink-200 hover:text-ink-50 transition-colors;
+  }
+
+  /* Link with animated underline */
+  .link-underline {
+    @apply relative inline-flex items-center gap-2 text-ink-100 hover:text-ink-50 transition-colors;
+  }
+  .link-underline::after {
+    content: '';
+    @apply absolute left-0 -bottom-0.5 h-px w-0 bg-ink-50 transition-all duration-500 ease-out;
+  }
+  .link-underline:hover::after {
+    @apply w-full;
+  }
+
+  /* Section header — consistent 12-col layout */
+  .section-header {
+    @apply grid grid-cols-12 gap-6 md:gap-8 mb-20 md:mb-24;
+  }
+  .section-header-index {
+    @apply col-span-12 md:col-span-3;
+  }
+  .section-header-content {
+    @apply col-span-12 md:col-span-9;
+  }
+
+  /* Nav glass */
+  .glass-panel {
+    background: rgba(5, 5, 4, 0.78);
+    backdrop-filter: blur(14px) saturate(140%);
+    -webkit-backdrop-filter: blur(14px) saturate(140%);
+    border-bottom: 1px solid rgba(245, 243, 239, 0.05);
   }
 }
 
-/* Very subtle grid background for tech feel */
-.bg-grid-tech {
-  background-image: 
-    linear-gradient(to right, rgba(255,255,255,0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255,255,255,0.02) 1px, transparent 1px);
-  background-size: 50px 50px;
-}
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
 
-/* Glass panel utility */
-.glass-panel {
-  background: rgba(10, 10, 10, 0.6);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  /* Soft ambient radial for hero */
+  .hero-ambient {
+    background:
+      radial-gradient(ellipse 70% 50% at 20% 10%, rgba(231, 220, 199, 0.035), transparent 70%),
+      radial-gradient(ellipse 60% 50% at 100% 100%, rgba(231, 220, 199, 0.025), transparent 70%);
+  }
 }

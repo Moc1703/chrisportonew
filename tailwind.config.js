@@ -8,43 +8,67 @@ module.exports = {
   theme: {
     extend: {
       colors: {
+        // Warm near-black surfaces (editorial dark)
         base: {
-          900: '#000000', // Pure black
-          800: '#0a0a0a', // Almost black
-          700: '#111111', // Very dark gray
-          border: '#1a1a1a', // Subtle thin border
-          light: '#2a2a2a', // Lighter border
+          900: '#050504', // page base
+          800: '#0a0a09', // raised
+          700: '#121110', // panel
+          600: '#1a1917',
+          border: '#1c1b18', // hairline divider
+          light: '#2a2824',  // stronger divider / muted border
         },
+        // Warm ink (off-white, not sterile pure white)
         ink: {
-          50: '#ffffff',  // Pure white
-          100: '#e5e5e5', // High emphasis
-          200: '#a3a3a3', // Medium emphasis
-          300: '#737373', // Low emphasis
+          50: '#f5f3ef',  // primary display
+          100: '#e6e3dd', // body strong
+          200: '#a8a49b', // body
+          300: '#6f6c65', // muted meta
+          400: '#45433e', // faint
+        },
+        // Warm cream accent
+        accent: {
+          DEFAULT: '#e7dcc7',
+          muted: '#b9ad95',
         },
         brand: {
-          DEFAULT: '#ffffff', // Monochrome accent is white
-          hover: '#e5e5e5',
-        }
+          DEFAULT: '#f5f3ef',
+          hover: '#e6e3dd',
+        },
       },
       fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
-        serif: ['var(--font-serif)', 'Georgia', 'serif'],
+        sans: ['var(--font-sans)', 'Inter', 'system-ui', 'sans-serif'],
+        mono: ['var(--font-mono)', 'JetBrains Mono', 'monospace'],
+        serif: ['var(--font-serif)', 'Playfair Display', 'Georgia', 'serif'],
       },
-      backgroundImage: {
-        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'noise': "url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22 opacity=%220.02%22/%3E%3C/svg%3E')",
+      letterSpacing: {
+        'tightest': '-0.04em',
+        'display': '-0.03em',
+      },
+      fontSize: {
+        // Fluid editorial display scale
+        'display-sm': ['clamp(2.25rem, 5vw, 3.5rem)', { lineHeight: '1.05', letterSpacing: '-0.03em' }],
+        'display-md': ['clamp(3rem, 7vw, 5rem)', { lineHeight: '1.02', letterSpacing: '-0.035em' }],
+        'display-lg': ['clamp(3.5rem, 10vw, 8rem)', { lineHeight: '0.98', letterSpacing: '-0.04em' }],
       },
       animation: {
-        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-        'fade-in-up': 'fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'pulse-soft': 'pulseSoft 3.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+        'fade-up': 'fadeUp 0.9s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+        'marquee': 'marquee 40s linear infinite',
       },
       keyframes: {
-        fadeInUp: {
-          '0%': { opacity: '0', transform: 'translateY(20px)' },
-          '100%': { opacity: '1', transform: 'translateY(0)' },
-        }
-      }
+        fadeUp: {
+          '0%': { opacity: '0', transform: 'translateY(16px)', filter: 'blur(6px)' },
+          '100%': { opacity: '1', transform: 'translateY(0)', filter: 'blur(0)' },
+        },
+        pulseSoft: {
+          '0%, 100%': { opacity: '0.6' },
+          '50%': { opacity: '1' },
+        },
+        marquee: {
+          '0%': { transform: 'translateX(0)' },
+          '100%': { transform: 'translateX(-50%)' },
+        },
+      },
     },
   },
   plugins: [],

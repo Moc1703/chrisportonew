@@ -9,25 +9,37 @@ export default function Navigation() {
   const { t } = useTranslation()
   const [isScrolled, setIsScrolled] = useState(false)
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [activeId, setActiveId] = useState<string>('home')
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
+    const handleScroll = () => setIsScrolled(window.scrollY > 16)
+    window.addEventListener('scroll', handleScroll, { passive: true })
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden'
-    } else {
-      document.body.style.overflow = 'unset'
-    }
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : ''
     return () => {
-      document.body.style.overflow = 'unset'
+      document.body.style.overflow = ''
     }
   }, [isMobileMenuOpen])
+
+  useEffect(() => {
+    const sections = ['home', 'about', 'experience', 'projects', 'skills', 'contact']
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActiveId(entry.target.id)
+        })
+      },
+      { rootMargin: '-45% 0px -50% 0px', threshold: 0 }
+    )
+    sections.forEach((id) => {
+      const el = document.getElementById(id)
+      if (el) observer.observe(el)
+    })
+    return () => observer.disconnect()
+  }, [])
 
   const scrollToSection = (sectionId: string) => {
     const element = document.getElementById(sectionId)
@@ -38,7 +50,6 @@ export default function Navigation() {
   }
 
   const navItems = [
-    { id: 'home', label: t('nav.home') },
     { id: 'about', label: t('nav.about') },
     { id: 'experience', label: t('nav.experience') },
     { id: 'projects', label: t('nav.projects') },
@@ -48,40 +59,49 @@ export default function Navigation() {
 
   return (
     <>
-      <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        isScrolled
-          ? 'glass-panel py-2'
-          : 'bg-transparent py-4'
-      }`}>
+      <nav
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
+          isScrolled ? 'glass-panel py-2' : 'bg-transparent py-4'
+        }`}
+      >
         <div className="container-custom">
-          <div className="flex items-center justify-between h-14">
-            {/* Logo */}
-            <button onClick={() => scrollToSection('home')} className="flex items-center gap-3 group">
-              <div className="w-8 h-8 bg-white text-black flex items-center justify-center font-serif text-sm font-bold rounded-none group-hover:bg-ink-100 transition-colors duration-300">
-                CI
-              </div>
-              <div className="flex flex-col text-left">
-                <span className="text-sm font-medium text-ink-50 tracking-tight">Christian Immanuel</span>
-                <span className="text-[9px] font-mono text-ink-300 uppercase tracking-widest mt-0.5">Developer</span>
-              </div>
+          <div className="flex items-center justify-between h-12">
+            {/* Wordmark */}
+            <button
+              onClick={() => scrollToSection('home')}
+              className="flex items-baseline gap-2.5"
+              aria-label="Home"
+            >
+              <span className="font-serif text-base md:text-lg tracking-display text-ink-50">
+                Christian Immanuel
+              </span>
             </button>
 
             {/* Desktop Menu */}
-            <div className="hidden lg:flex items-center gap-1">
-              {navItems.map((item) => (
-                <button
-                  key={item.id}
-                  onClick={() => scrollToSection(item.id)}
-                  className="px-3 py-1.5 text-xs font-mono uppercase tracking-widest text-ink-200 hover:text-white transition-colors duration-300"
-                >
-                  {item.label}
-                </button>
-              ))}
-              <div className="ml-4 pl-4 border-l border-base-light flex items-center gap-4">
+            <div className="hidden lg:flex items-center">
+              <div className="flex items-center gap-8">
+                {navItems.map((item) => (
+                  <button
+                    key={item.id}
+                    onClick={() => scrollToSection(item.id)}
+                    className={`relative text-[11px] font-mono uppercase tracking-[0.22em] transition-colors duration-300 ${
+                      activeId === item.id ? 'text-ink-50' : 'text-ink-300 hover:text-ink-100'
+                    }`}
+                  >
+                    {item.label}
+                    <span
+                      className={`absolute -bottom-1.5 left-0 h-px bg-ink-50 transition-all duration-500 ${
+                        activeId === item.id ? 'w-full' : 'w-0'
+                      }`}
+                    />
+                  </button>
+                ))}
+              </div>
+              <div className="ml-8 pl-8 border-l border-base-border flex items-center gap-4">
                 <LanguageSwitcher />
                 <button
                   onClick={() => scrollToSection('contact')}
-                  className="px-5 py-2 bg-white text-black text-xs font-mono font-bold uppercase tracking-widest rounded-none hover:bg-black hover:text-white border border-transparent hover:border-white transition-all duration-300"
+                  className="px-4 py-2 bg-ink-50 text-base-900 text-[11px] font-mono font-medium uppercase tracking-[0.2em] rounded-full hover:bg-brand-hover transition-colors"
                 >
                   {t('nav.cta')}
                 </button>
@@ -89,11 +109,12 @@ export default function Navigation() {
             </div>
 
             {/* Mobile Controls */}
-            <div className="flex lg:hidden items-center gap-3">
+            <div className="flex lg:hidden items-center gap-2">
               <LanguageSwitcher />
               <button
-                className="text-ink-100 p-2 hover:text-white transition-colors"
+                className="text-ink-100 p-2 hover:text-ink-50 transition-colors"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Menu"
               >
                 {isMobileMenuOpen ? <X size={20} strokeWidth={1.5} /> : <Menu size={20} strokeWidth={1.5} />}
               </button>
@@ -103,25 +124,31 @@ export default function Navigation() {
 
         {/* Mobile Menu */}
         <div
-          className={`lg:hidden fixed inset-0 top-[60px] bg-base-900/95 backdrop-blur-xl transition-all duration-300 ${
+          className={`lg:hidden fixed inset-0 top-[56px] bg-base-900/98 backdrop-blur-xl transition-all duration-300 ${
             isMobileMenuOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
           }`}
         >
-          <div className="container-custom py-8 space-y-1">
-            {navItems.map((item, index) => (
-              <button
-                key={item.id}
-                onClick={() => scrollToSection(item.id)}
-                className="block w-full text-left py-4 text-sm font-mono uppercase tracking-widest text-ink-100 hover:text-white transition-colors duration-300 border-b border-base-border"
-                style={{ transitionDelay: `${index * 50}ms` }}
-              >
-                {item.label}
-              </button>
-            ))}
+          <div className="container-custom py-8">
+            <div className="flex flex-col divide-y divide-base-border">
+              {navItems.map((item, idx) => (
+                <button
+                  key={item.id}
+                  onClick={() => scrollToSection(item.id)}
+                  className="flex items-baseline justify-between py-5 text-left group"
+                >
+                  <span className="font-serif text-2xl text-ink-50 group-hover:text-accent transition-colors">
+                    {item.label}
+                  </span>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink-400">
+                    0{idx + 1}
+                  </span>
+                </button>
+              ))}
+            </div>
             <div className="pt-8">
               <button
                 onClick={() => scrollToSection('contact')}
-                className="w-full py-4 bg-white text-black font-mono font-bold uppercase tracking-widest rounded-none hover:bg-black hover:text-white border border-transparent hover:border-white transition-colors"
+                className="w-full py-4 bg-ink-50 text-base-900 font-mono font-medium uppercase tracking-[0.2em] text-xs rounded-full hover:bg-brand-hover transition-colors"
               >
                 {t('nav.cta')}
               </button>
