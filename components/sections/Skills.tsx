@@ -5,7 +5,7 @@ import ScrollReveal from '../ScrollReveal'
 
 interface Skill {
   name: string
-  level: number // 1-5
+  level: number
 }
 
 interface SkillCategory {
@@ -57,19 +57,14 @@ const skillCategories: SkillCategory[] = [
   },
 ]
 
-function SkillLevel({ level }: { level: number }) {
+function LevelBar({ level }: { level: number }) {
+  const pct = (level / 5) * 100
   return (
-    <div className="flex gap-1.5">
-      {[1, 2, 3, 4, 5].map((i) => (
-        <div
-          key={i}
-          className={`w-4 h-1 transition-colors duration-300 ${
-            i <= level
-              ? 'bg-white'
-              : 'bg-base-700'
-          }`}
-        />
-      ))}
+    <div className="relative w-24 sm:w-28 h-px bg-base-light overflow-hidden">
+      <div
+        className="absolute inset-y-0 left-0 bg-ink-100"
+        style={{ width: `${pct}%` }}
+      />
     </div>
   )
 }
@@ -78,40 +73,49 @@ export default function Skills() {
   const { t } = useTranslation()
 
   return (
-    <section id="skills" className="section-padding border-t border-base-border relative">
+    <section
+      id="skills"
+      className="section-padding border-t border-base-border relative"
+    >
       <div className="container-custom">
         <ScrollReveal>
-          {/* Header */}
-          <div className="mb-16 md:mb-20">
-            <span className="tech-badge mb-4">
-              {t('skills.badge')}
-            </span>
-            <h2 className="section-title mb-4">{t('skills.title')}</h2>
-            <p className="section-description">{t('skills.description')}</p>
+          <div className="section-header">
+            <div className="section-header-index">
+              <span className="section-index">04 — Skills</span>
+            </div>
+            <div className="section-header-content">
+              <h2 className="display-section text-balance">{t('skills.title')}</h2>
+              <p className="section-description mt-6">{t('skills.description')}</p>
+            </div>
           </div>
         </ScrollReveal>
 
-        {/* Skills Grid - Minimalist */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
+        {/* Two column editorial */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 lg:gap-x-16 gap-y-14">
           {skillCategories.map((category, index) => (
-            <ScrollReveal key={index} delay={index * 100}>
-              <div
-                className="bg-black border border-base-light p-8"
-              >
-                <h3 className="text-xl font-serif text-ink-50 mb-8 flex items-center gap-3">
-                  <span className="w-1.5 h-1.5 bg-white"></span>
-                  {t(category.titleKey)}
-                </h3>
-                <div className="space-y-6">
-                  {category.skills.map((skill, i) => (
-                    <div key={i} className="flex items-center justify-between group">
-                      <span className="text-sm font-sans text-ink-100 group-hover:text-white transition-colors">
+            <ScrollReveal key={index} delay={index * 60}>
+              <div>
+                <div className="flex items-baseline justify-between mb-6 pb-4 border-b border-base-border">
+                  <h3 className="font-serif text-xl md:text-2xl text-ink-50 tracking-display">
+                    {t(category.titleKey)}
+                  </h3>
+                  <span className="font-mono text-[10px] uppercase tracking-[0.22em] text-ink-300">
+                    0{index + 1}
+                  </span>
+                </div>
+                <ul className="flex flex-col divide-y divide-base-border">
+                  {category.skills.map((skill) => (
+                    <li
+                      key={skill.name}
+                      className="flex items-center justify-between py-3"
+                    >
+                      <span className="text-sm md:text-base text-ink-100">
                         {skill.name}
                       </span>
-                      <SkillLevel level={skill.level} />
-                    </div>
+                      <LevelBar level={skill.level} />
+                    </li>
                   ))}
-                </div>
+                </ul>
               </div>
             </ScrollReveal>
           ))}

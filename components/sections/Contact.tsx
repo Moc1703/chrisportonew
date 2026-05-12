@@ -1,6 +1,6 @@
 'use client'
 
-import { Mail, Phone, MapPin, ExternalLink, ArrowRight, Github } from 'lucide-react'
+import { ArrowUpRight } from 'lucide-react'
 import { useTranslation } from '@/lib/i18n'
 import ScrollReveal from '../ScrollReveal'
 
@@ -15,25 +15,21 @@ export default function Contact() {
 
   const contactItems = [
     {
-      icon: Mail,
       label: t('contact.email_label'),
       value: 'christianimm36@gmail.com',
       href: 'mailto:christianimm36@gmail.com',
     },
     {
-      icon: Phone,
       label: t('contact.phone_label'),
       value: '+62 851 6168 2748',
       href: 'tel:+6285161682748',
     },
     {
-      icon: MapPin,
       label: t('contact.location_label'),
       value: t('contact.location_value'),
       href: null,
     },
     {
-      icon: ExternalLink,
       label: t('contact.portfolio_label'),
       value: 'chrsm1309.my.id',
       href: 'https://chrsm1309.my.id',
@@ -41,70 +37,60 @@ export default function Contact() {
   ]
 
   return (
-    <section id="contact" className="section-padding border-y border-base-border relative">
+    <section id="contact" className="section-padding border-t border-base-border relative">
       <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center">
-          
-          {/* Left: Text & CTA */}
-          <ScrollReveal>
-            <div>
-              <span className="tech-badge mb-4">
-                {t('contact.badge')}
-              </span>
-              <h2 className="section-title mb-6">{t('contact.title')}</h2>
-              <p className="text-lg font-light text-ink-200 mb-12 leading-relaxed max-w-lg">
-                {t('contact.description')}
-              </p>
+        {/* Header */}
+        <ScrollReveal>
+          <div className="section-header">
+            <div className="section-header-index">
+              <span className="section-index">05 — Contact</span>
+            </div>
+            <div className="section-header-content">
+              <h2 className="display-section text-balance">{t('contact.title')}</h2>
+              <p className="section-description mt-6">{t('contact.description')}</p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
-                <button
-                  onClick={handleWhatsAppClick}
-                  className="group px-6 py-3.5 bg-white text-black font-sans font-medium text-sm rounded-none hover:bg-ink-100 transition-colors flex items-center justify-center gap-3"
-                >
+              <div className="mt-10 flex flex-wrap items-center gap-3">
+                <button onClick={handleWhatsAppClick} className="btn-primary group">
                   WhatsApp
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </button>
-                
-                <a
-                  href="mailto:christianimm36@gmail.com"
-                  className="group px-6 py-3.5 bg-black border border-base-light text-ink-50 font-sans font-medium text-sm rounded-none hover:bg-white hover:text-black transition-colors flex items-center justify-center gap-3"
-                >
+                <a href="mailto:christianimm36@gmail.com" className="btn-ghost group">
                   Email
-                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  <ArrowUpRight className="w-4 h-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5" />
                 </a>
               </div>
             </div>
-          </ScrollReveal>
+          </div>
+        </ScrollReveal>
 
-          {/* Right: Contact Details Grid */}
-          <div className="grid sm:grid-cols-2 gap-6">
+        {/* Contact details */}
+        <ScrollReveal delay={100}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 border-t border-base-border">
             {contactItems.map((item, index) => {
-              const Icon = item.icon
-              const content = (
-                <ScrollReveal key={index} delay={index * 100}>
-                  <div className="bg-black border border-base-light p-6 h-full rounded-none group flex flex-col justify-between hover:bg-white hover:border-white transition-colors duration-500">
-                    <div className="w-10 h-10 rounded-none bg-black border border-base-light flex items-center justify-center mb-8 group-hover:border-black group-hover:bg-white transition-colors duration-500">
-                      <Icon className="w-4 h-4 text-ink-200 group-hover:text-black transition-colors" />
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-mono text-ink-300 group-hover:text-black uppercase tracking-widest mb-1.5 transition-colors duration-500">{item.label}</p>
-                      <p className="text-sm text-ink-50 group-hover:text-black font-medium break-all transition-colors duration-500">{item.value}</p>
-                    </div>
-                  </div>
-                </ScrollReveal>
+              const inner = (
+                <div className="py-8 lg:py-10 px-0 lg:px-8 first:lg:pl-0 border-b sm:border-b-0 border-base-border lg:border-b-0 sm:border-r sm:last:border-r-0 lg:last:border-r-0 h-full flex flex-col">
+                  <p className="section-index mb-3">{item.label}</p>
+                  <p className="font-serif text-lg md:text-xl text-ink-50 tracking-display leading-tight break-words">
+                    {item.value}
+                  </p>
+                </div>
               )
-
               return item.href ? (
-                <a key={index} href={item.href} target={item.href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" className="block h-full">
-                  {content}
+                <a
+                  key={index}
+                  href={item.href}
+                  target={item.href.startsWith('http') ? '_blank' : undefined}
+                  rel="noopener noreferrer"
+                  className="transition-colors duration-500 hover:bg-base-800/40"
+                >
+                  {inner}
                 </a>
               ) : (
-                <div key={index} className="h-full">{content}</div>
+                <div key={index}>{inner}</div>
               )
             })}
           </div>
-
-        </div>
+        </ScrollReveal>
       </div>
     </section>
   )
