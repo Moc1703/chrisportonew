@@ -1,6 +1,7 @@
 'use client'
 
 import { useTranslation } from '@/lib/i18n'
+import Image from 'next/image'
 import ScrollReveal from '../ScrollReveal'
 
 const techStack = [
@@ -36,8 +37,22 @@ export default function About() {
 
         {/* Body */}
         <div className="grid grid-cols-12 gap-6 md:gap-12">
-          {/* Bio */}
+          {/* Bio + Photo */}
           <ScrollReveal className="col-span-12 lg:col-span-7">
+            {/* Portrait */}
+            <div className="mb-10">
+              <div className="relative w-36 h-44 sm:w-44 sm:h-56 overflow-hidden">
+                <Image
+                  src="/Profile.jpg"
+                  alt="Christian Immanuel"
+                  fill
+                  className="object-cover object-top grayscale hover:grayscale-0 transition-all duration-700"
+                  sizes="(max-width: 640px) 144px, 176px"
+                  priority
+                />
+              </div>
+            </div>
+
             <div className="space-y-6">
               <p className="lead text-pretty">{t('about.description')}</p>
               <p className="text-base text-ink-200 leading-[1.75] font-light text-pretty">
